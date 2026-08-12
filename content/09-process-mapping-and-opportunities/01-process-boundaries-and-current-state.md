@@ -9,6 +9,20 @@ By the end of this lesson, you can:
 - collect evidence without assuming the documented procedure matches reality;
 - produce a current-state inventory that another person can verify.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Trigger] --> B[Unit of work]
+    B --> C[Observed actions and decisions]
+    C --> D[Handoffs waits and exceptions]
+    D --> E[Observable end state]
+    E --> F[Recipient and outcome]
+    G[Artifacts observation and interviews] --> C
+    C --> H[Evidence register]
+    H --> I[Claims sources and confidence]
+```
+
 ## Why boundaries come first
 
 A process is a repeatable transformation: an event creates a unit of work, people or systems act on it, and an outcome is delivered to someone. "Finance" is not a process. "Receive an invoice and either schedule it for payment or return it with a reason" is.

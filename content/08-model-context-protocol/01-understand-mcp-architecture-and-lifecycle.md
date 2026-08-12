@@ -9,6 +9,22 @@ By the end of this lesson, you will be able to:
 - read a basic JSON-RPC request; and
 - account for protocol-version changes, especially the 2026-07-28 stateless core.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    U[User] --> H[Host application]
+    H --> M[Model]
+    H --> C[MCP client]
+    C -->|Self describing JSON-RPC request| S[MCP server]
+    S --> T[Tools]
+    S --> R[Resources]
+    S --> P[Prompts]
+    S -->|Result or protocol error| C
+    C --> H
+    H --> U
+```
+
 ## MCP standardizes a boundary
 
 The Model Context Protocol defines how AI applications discover and use context and capabilities exposed by servers. It does not define how an LLM is trained, which model a host uses, or when the model should trust returned content.

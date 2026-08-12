@@ -9,6 +9,23 @@ By the end of this lesson, you can:
 - express an automation as pseudocode and a directed dependency graph;
 - identify termination conditions before implementation.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Typed input] --> B[Validate]
+    B --> C[Pure transformation]
+    C --> D{Decision class}
+    D -->|Deterministic| E[Apply rule]
+    D -->|Probabilistic| F[Validate suggestion]
+    D -->|Human judgment| G[Request decision]
+    E --> H[Authorize side effect]
+    F --> H
+    G --> H
+    H --> I[Record state]
+    I --> J[Defined output]
+```
+
 ## An algorithm is an executable contract
 
 A process map describes who does what. An algorithm must remove enough ambiguity that a machine can execute the permitted portion. Define:

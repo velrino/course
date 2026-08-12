@@ -6,6 +6,24 @@
 - Turn a business question into a bounded, auditable knowledge corpus.
 - Define source ownership, freshness, access, and deletion before building an index.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Approved sources] --> B[Normalize]
+    B --> C[Chunk with metadata]
+    C --> D[Search index]
+    E[User question] --> F[Access-filtered retrieval]
+    D --> F
+    F --> G[Selected evidence]
+    G --> H[Generator]
+    E --> H
+    H --> I[Cited answer or abstention]
+    J[Source register] --> A
+    J --> C
+    J --> F
+```
+
 ## The retrieval contract
 
 A language model generates text from parameters learned during training. RAG adds a second, non-parametric memory: at request time, a retriever selects evidence from an external corpus and the generator receives that evidence in its context. This makes current, private, or domain-specific knowledge available without retraining. It does **not** make an answer true automatically. A bad source, missing passage, incorrect access filter, or unsupported synthesis can still produce a confident error.

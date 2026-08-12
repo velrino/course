@@ -4,6 +4,21 @@
 
 Select an appropriately bounded project, produce auditable evidence, and assess work consistently across no-code and code implementations.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Choose three complementary capstones] --> B[Bound scope and local data]
+    B --> C[Build a non-agent baseline]
+    C --> D[Implement with approval boundaries]
+    D --> E[Test quality safety and failures]
+    E --> F[Assemble evidence package]
+    F --> G[Score with the common rubric]
+    G --> H{Critical failure or weak evidence}
+    H -->|Yes| B
+    H -->|No| I[Publish reproducible portfolio]
+```
+
 ## Common rules
 
 Every capstone must:

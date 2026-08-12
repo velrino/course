@@ -9,6 +9,21 @@ By the end of this lesson, you will be able to:
 - specify evidence, uncertainty, and output requirements; and
 - identify failures that prompt wording cannot solve.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Goal and user] --> D[Prompt contract]
+    B[Trusted instructions and context] --> D
+    C[Untrusted input] --> D
+    D --> E[Model]
+    E --> F[Structured output]
+    F --> G[Schema and policy validation]
+    G --> H{Valid and supported}
+    H -->|Yes| I[Deliver or request approval]
+    H -->|No| J[Ask abstain or retry]
+```
+
 ## A prompt is an interface, not a spell
 
 A useful prompt describes work the same way a good task specification does. Start with:

@@ -9,6 +9,22 @@ By the end of this lesson, you can:
 - implement pagination with explicit limits and duplicate protection;
 - classify status codes before transforming a response.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[API contract] --> B[Authenticated request]
+    B --> C{Response class}
+    C -->|Success| D[Validate response]
+    C -->|Client error| E[Stop or correct request]
+    C -->|Retryable| F[Bounded backoff]
+    F --> B
+    D --> G[Collect unique items]
+    G --> H{Next cursor and under limit}
+    H -->|Yes| B
+    H -->|No| I[Reconciled result]
+```
+
 ## Begin with the contract
 
 Before building a node, record:

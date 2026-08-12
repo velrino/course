@@ -4,6 +4,18 @@
 
 By the end of this lesson, you will be able to choose a realistic study pace, produce evidence of learning, and distinguish reading about a system from being able to build and evaluate one.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Read] --> B[Reproduce]
+    B --> C[Modify]
+    C --> D[Build]
+    D --> E[Evaluate]
+    E --> F[Explain]
+    F -->|Next topic or revision| A
+```
+
 ## The learning contract
 
 This course assumes no prior programming experience, but it does require regular practice. A useful default is **9 to 10 hours per week for 40 weeks**. Reduce the weekly load rather than skipping exercises. Technical fluency develops through repeated retrieval, implementation, failure analysis, and revision.

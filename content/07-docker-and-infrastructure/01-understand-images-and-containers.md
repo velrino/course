@@ -9,6 +9,23 @@ By the end of this lesson, you will be able to:
 - inspect process, filesystem, and network isolation; and
 - use basic Docker commands without treating containers as permanent servers.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Dockerfile and build context] --> B[Build image]
+    B --> C[Immutable image]
+    C --> D[Create container]
+    D --> E[Start main process]
+    E --> F[Running container]
+    F --> G[Stop]
+    G --> H[Stopped container]
+    H -->|Start again| E
+    H -->|Remove| I[Removed container]
+    F --> J[Volume for persistent data]
+    K[Registry] --> C
+```
+
 ## An image is a package; a container is a process
 
 A container image is an immutable, layered package containing a filesystem and configuration needed to start a process. A container is a runtime instance created from an image. Multiple containers can start from one image and receive separate writable layers and runtime configuration.

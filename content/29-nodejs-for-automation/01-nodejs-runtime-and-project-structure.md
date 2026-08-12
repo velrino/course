@@ -12,6 +12,21 @@ Use a currently supported Node release. The examples in this module target Node 
 - Fail early when required configuration or input is invalid.
 - Keep secrets and machine-specific values out of source code.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[CLI file HTTP or queue] --> B[Input adapter]
+    B --> C[Parse configuration and validate]
+    C --> D[Pure domain logic]
+    D --> E[Async output adapter]
+    E --> F[Files APIs databases or subprocesses]
+    G[Operational shell] --> B
+    G --> E
+    E --> H[Promise settles on the event loop]
+    H --> D
+```
+
 ## Runtime model for automation
 
 An automation normally has four boundaries:

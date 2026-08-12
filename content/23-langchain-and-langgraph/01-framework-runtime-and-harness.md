@@ -4,6 +4,19 @@
 
 Distinguish LangChain from LangGraph, decide when either is justified, and avoid treating a framework as the architecture itself.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Application architecture] --> B[Agent harness]
+    B --> C[LangChain framework]
+    C --> D[LangGraph runtime]
+    D --> E[State nodes edges and checkpoints]
+    E --> F[Models tools and external services]
+    A --> G[Authentication data queues audit and UI]
+    G --> F
+```
+
 ## The three layers
 
 An **agent framework** supplies reusable interfaces for models, messages, tools, structured outputs, and common agent loops. LangChain occupies this layer. It helps swap integrations and assemble a standard tool-calling agent quickly.

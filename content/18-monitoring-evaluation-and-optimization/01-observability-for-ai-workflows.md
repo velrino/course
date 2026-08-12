@@ -6,6 +6,27 @@
 - Define service-level indicators for quality, safety, latency, cost, and availability.
 - Instrument without copying sensitive prompts into every telemetry system.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Request] --> B[Root trace]
+    B --> C[Retrieval span]
+    C --> D[Model span]
+    D --> E[Tool span]
+    E --> F[Approval span]
+    F --> G[User outcome]
+    B --> H[Redacted telemetry]
+    C --> H
+    D --> H
+    E --> H
+    F --> H
+    G --> I[Feedback]
+    I --> H
+    H --> J[Indicators and evaluations]
+    J --> K[Alert or release decision]
+```
+
 ## Observe the whole request
 
 A trace represents one request or workflow and contains nested spans for model calls, retrieval, tools, approvals, and downstream APIs. Metrics aggregate behavior over time. Logs explain discrete events. Feedback connects a trace to a user or reviewer outcome. Use a shared trace ID so an incident can be reconstructed without joining on raw personal text.

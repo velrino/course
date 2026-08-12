@@ -4,6 +4,20 @@
 
 Explain CrewAI's two main orchestration styles, choose the least autonomous design that satisfies a task, and identify costs hidden by role-based metaphors.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Workflow input] --> B[Flow validation and routing]
+    B --> C[Deterministic steps]
+    C --> D{Needs bounded exploration}
+    D -->|No| E[Validated result]
+    D -->|Yes| F[Crew with narrow task and tools]
+    F --> E
+    E --> G[Human approval]
+    G --> H[Controlled side effect]
+```
+
 ## Two orchestration styles
 
 A **Crew** coordinates agents with roles, goals, tools, and assigned tasks. It is useful when a problem benefits from open-ended delegation or specialized perspectives. A **Flow** expresses event-driven control, state, routing, and explicit steps. It is a better default when execution order, auditability, and failure behavior must be predictable.

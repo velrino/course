@@ -6,6 +6,25 @@
 - Compare router, supervisor, handoff, pipeline, debate, and parallel-worker patterns.
 - Define a baseline that can disprove the need for added orchestration.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Task] --> B[Single-agent baseline]
+    B --> C{Meets evaluation gate}
+    C -->|Yes| D[Keep simple design]
+    C -->|No| E[Name coordination gap]
+    E --> F[Router or supervisor]
+    F --> G[Research specialist]
+    F --> H[Citation specialist]
+    G --> I[Synthesis]
+    H --> I
+    I --> J[Independent validation]
+    J --> K{Improves quality within limits}
+    K -->|Yes| L[Adopt multi-agent design]
+    K -->|No| D
+```
+
 ## Architecture follows coordination needs
 
 An "agent" is a component that uses a model to choose actions or tools within a bounded role. Splitting one prompt into several personas does not automatically add capability. It adds model calls, state transitions, context boundaries, security identities, latency, cost, and new failure modes. Start with a single agent plus clear tools. Adopt multiple agents only when evaluation shows a specific coordination benefit.

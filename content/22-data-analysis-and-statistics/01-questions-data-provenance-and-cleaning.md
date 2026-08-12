@@ -6,6 +6,20 @@
 - Document population, unit of analysis, collection process, and provenance.
 - Clean data with explicit rules, tests, and an audit trail.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Decision to support] --> B[Measurable question]
+    B --> C[Population unit and time window]
+    C --> D[Provenance and immutable raw data]
+    D --> E[Validation and explicit cleaning rules]
+    E --> F[Sensitivity analysis]
+    F --> G[Result with uncertainty]
+    E --> H[Audit trail and reconciliation]
+    H --> G
+```
+
 ## Analysis begins before the dataframe
 
 Write the decision, estimand or metric, population, unit of analysis, time window, comparison, and acceptable uncertainty. "Analyze engagement" is not testable. "Estimate the difference in 28-day lesson-completion rate between first-time mobile and desktop students who enrolled in July" identifies rows, groups, outcome, and window.

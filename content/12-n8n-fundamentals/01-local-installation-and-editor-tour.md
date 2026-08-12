@@ -9,6 +9,20 @@ By the end of this lesson, you can:
 - keep secrets and production data out of a learning instance;
 - export a workflow and verify that a restart preserves it.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Browser editor] --> B[Saved workflow]
+    B --> C[Trigger node]
+    C --> D[Action nodes]
+    D --> E[Execution record]
+    F[Credential store] --> D
+    G[Docker volume] --> B
+    G --> F
+    G --> E
+```
+
 ## Choose a learning setup
 
 n8n offers cloud and self-hosted options. This course uses a local Community Edition instance so the core exercises do not require a subscription. Self-hosting also makes you responsible for updates, security, backup, and availability. A laptop instance is a lab, not production.

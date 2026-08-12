@@ -6,6 +6,21 @@
 - Use normalization to prevent update, insertion, and deletion anomalies.
 - Make the database reject invalid states even when application code fails.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Business facts and invariants] --> B[One fact type per table]
+    B --> C[Primary and unique keys]
+    B --> D[Foreign key relationships]
+    B --> E[Required fields and checks]
+    C --> F[Normalized relational schema]
+    D --> F
+    E --> F
+    F --> G[Accept valid state]
+    F --> H[Reject invalid state]
+```
+
 ## Model facts and invariants
 
 A table represents one kind of fact; a row is one occurrence; a key identifies it. Choose stable surrogate primary keys when natural identifiers can change, but preserve business uniqueness with `UNIQUE` constraints. A foreign key states that a reference must exist. `NOT NULL`, `CHECK`, and exclusion constraints express further invariants close to the data.

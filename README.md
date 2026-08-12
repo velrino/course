@@ -9,6 +9,7 @@ The curriculum uses two commercial syllabi only as a topic map. All lessons are 
 - [Overview](#overview)
 - [Start Here](#start-here)
 - [Learning Model](#learning-model)
+- [Visual Course Journey](#visual-course-journey)
 - [Course Stages](#course-stages)
 - [Suggested Learning Paths](#suggested-learning-paths)
 - [Course Map](#course-map)
@@ -27,6 +28,7 @@ The curriculum uses two commercial syllabi only as a topic map. All lessons are 
 | Technical lessons with explicit local practice | 140 |
 | Orientation chapters | 7 |
 | Specified capstone builds | 5 |
+| Mermaid learning diagrams | 31 |
 | Reference citations in course content | 628 |
 | Unique referenced URLs | 472 |
 | Recommended full-course pace | 40 weeks at 9-10 hours per week |
@@ -59,6 +61,21 @@ The standard cycle is **read, reproduce, modify, build, evaluate, and explain**.
 Modules use a 100-point evidence model with 70 as the normal advancement threshold. Safety-critical tests and reproducibility remain mandatory even when the numerical score is higher.
 
 The course supports deterministic mocks, local services, and local models. Do not upload employer, client, health, financial, identity, or other sensitive data to learning services.
+
+## Visual Course Journey
+
+```mermaid
+flowchart LR
+    A[Orient and learn] --> B[Build foundations]
+    B --> C[Design automations]
+    C --> D[Engineer reliable agents]
+    D --> E[Work with code and data]
+    E --> F[Govern and deliver]
+    F --> G[Build portfolio capstones]
+    G -. evidence and reflection .-> A
+```
+
+Each module starts with a focused Mermaid map of its main process, architecture, or decision cycle. These diagrams render directly on GitHub and remain readable as source in any Markdown editor.
 
 ## Course Stages
 

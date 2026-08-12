@@ -4,6 +4,20 @@
 
 Identify affected people, distinguish principles from operational controls, and analyze an AI use case across its full lifecycle.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Affected people] --> B[Benefits harms and power]
+    B --> C[Lifecycle impact analysis]
+    C --> D[Requirements and controls]
+    D --> E[Tests evidence and accountability]
+    E --> F{Responsible decision}
+    F -->|Proceed| G[Deploy monitor and support appeal]
+    F -->|Do not proceed| H[Use an alternative or stop]
+    G -->|New evidence| A
+```
+
 ## Ethics is a decision process
 
 An ethical principle such as fairness, privacy, human autonomy, or prevention of harm does not implement itself. It must change requirements, data collection, system boundaries, tests, user controls, deployment decisions, and accountability.

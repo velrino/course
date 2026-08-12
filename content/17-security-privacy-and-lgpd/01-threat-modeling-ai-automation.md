@@ -6,6 +6,24 @@
 - Apply least privilege and defense in depth to model-driven tools.
 - Convert a threat model into testable security requirements.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Untrusted user or document] --> B[Trust boundary validation]
+    B --> C[Agent controller]
+    C --> D[Model proposal]
+    D --> C
+    C --> E[Policy and authorization]
+    E --> F[Narrow typed tools]
+    F --> G[Approved APIs and stores]
+    C --> H[Redacted audit log]
+    E --> H
+    F --> H
+    I[Budgets and allowlists] --> C
+    I --> E
+```
+
 ## Model the system, not only the model
 
 An agent includes user interfaces, prompts, models, retrieval stores, tool servers, credentials, logs, queues, reviewers, and downstream APIs. Draw a data-flow diagram with processes, stores, external entities, and trust boundaries. Mark where untrusted text becomes model context and where model output becomes code, SQL, HTML, file paths, or tool arguments.

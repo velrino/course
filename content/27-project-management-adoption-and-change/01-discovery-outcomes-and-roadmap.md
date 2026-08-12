@@ -4,6 +4,25 @@
 
 Run a problem-focused discovery, define measurable outcomes, and build a roadmap that tests risk before scaling investment.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Current state and baseline] --> B[Discovery]
+    B --> C{Evidence gate}
+    C -->|Pass| D[Alpha]
+    D --> E{Evidence gate}
+    E -->|Pass| F[Private beta]
+    F --> G{Evidence gate}
+    G -->|Pass| H[Limited live]
+    H --> I{Outcomes and guardrails hold}
+    I -->|Yes| J[Scale with monitoring]
+    C -->|Fail| K[Stop redesign or retire]
+    E -->|Fail| K
+    G -->|Fail| K
+    I -->|No| K
+```
+
 ## Discovery before delivery
 
 Discovery asks whether a worthwhile, feasible, and responsible service can be built. Learn how work happens now, who participates, what users need, which constraints are legal or technical, what data exists, and how failures are handled. Observe real work where possible; process documentation often omits exceptions and informal coordination.

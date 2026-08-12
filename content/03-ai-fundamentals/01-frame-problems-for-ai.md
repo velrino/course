@@ -9,6 +9,24 @@ By the end of this lesson, you will be able to:
 - compare rules, search, prediction, generation, and agent approaches; and
 - reject an AI proposal when a simpler system fits better.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Business need] --> B[Define inputs outputs constraints and evidence]
+    B --> C{Known rule or existing answer}
+    C -->|Yes| D[Rules or retrieval]
+    C -->|No| E{Required behavior}
+    E -->|Estimate| F[Predictive ML]
+    E -->|Create content| G[Generative model]
+    E -->|Observe and act| H[Agent]
+    D --> I[Compare with a baseline]
+    F --> I
+    G --> I
+    H --> I
+    I --> J[Evaluate cost risk and outcomes]
+```
+
 ## Terms describe nested and overlapping approaches
 
 **Artificial intelligence** is a broad field concerned with systems that perform tasks associated with perception, reasoning, learning, language, planning, or action. **Machine learning** is an approach in which performance is shaped by patterns learned from data rather than only hand-written rules. **Deep learning** uses multilayer neural networks and is one family within machine learning. **Generative AI** produces new content such as text, images, audio, or code, usually from patterns represented by a trained model.

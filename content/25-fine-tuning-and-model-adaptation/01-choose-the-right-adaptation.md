@@ -4,6 +4,26 @@
 
 Diagnose a model-system failure, distinguish behavioral adaptation from knowledge access, and decide whether fine-tuning is warranted.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Measured system failure] --> B{Failure class}
+    B -->|Current or private facts| C[Retrieval or read only tool]
+    B -->|Calculation or transaction| D[Deterministic code or tool]
+    B -->|Output structure| E[Schema and validation]
+    B -->|Instructions| F[Prompt and examples]
+    B -->|Stable repeated behavior| G[Fine tuning candidate]
+    C --> H[Frozen evaluation set]
+    D --> H
+    E --> H
+    F --> H
+    G --> H
+    H --> I{Improvement meets threshold}
+    I -->|Yes| J[Controlled rollout]
+    I -->|No| K[Stop or choose another method]
+```
+
 ## Start with the failure
 
 Fine-tuning changes model behavior by training on examples. It is not the universal next step after a disappointing prompt. First classify the failure:

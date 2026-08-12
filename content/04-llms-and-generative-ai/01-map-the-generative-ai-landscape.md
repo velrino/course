@@ -9,6 +9,19 @@ By the end of this lesson, you will be able to:
 - separate a model from the application wrapped around it; and
 - choose a testable use case with a suitable baseline.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[User input] --> B[Interface and product policy]
+    B --> C[Instructions and conversation]
+    C --> D[Retrieved context and tool results]
+    D --> E[Model and decoding]
+    E --> F[Validation and safety checks]
+    F --> G[Application output]
+    H[Evaluation examples and baseline] --> F
+```
+
 ## Generation models a distribution
 
 A discriminative model commonly estimates a target from an input, such as the probability that a message is spam. A generative model learns enough structure to produce samples: text continuations, images, audio, code, or other data.

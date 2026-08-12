@@ -6,6 +6,27 @@
 - Distinguish approval, review, correction, escalation, and appeal.
 - Match the strength of a control to impact, uncertainty, and reversibility.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Proposed action] --> B[Assess impact uncertainty and reversibility]
+    B --> C{Required control}
+    C -->|Low risk| D[Execute and sample]
+    C -->|Human review| E[Approval packet]
+    C -->|Not allowed| F[Block and escalate]
+    E --> G{Human decision}
+    G -->|Approve| H[Execute]
+    G -->|Edit| I[Revise proposal]
+    I --> E
+    G -->|Reject| J[Do not execute]
+    G -->|Escalate| K[Named owner]
+    D --> L[Audit record]
+    H --> L
+    J --> L
+    K --> L
+```
+
 ## Oversight must change the outcome
 
 Putting a person near a system is not meaningful oversight unless that person has enough information, time, authority, and a usable action. A confirmation dialog that defaults to approval after a vague summary is ceremony, not control.

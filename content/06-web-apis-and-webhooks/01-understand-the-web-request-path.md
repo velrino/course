@@ -9,6 +9,22 @@ By the end of this lesson, you will be able to:
 - explain hosts, IP addresses, and ports; and
 - locate a failure at the correct layer using observable evidence.
 
+## Visual map
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant D as DNS
+    participant S as Origin server
+    C->>D: Resolve host name
+    D-->>C: Return network address
+    C->>S: Connect to address and port
+    C->>S: Negotiate TLS for HTTPS
+    C->>S: Send HTTP request
+    S-->>C: Return HTTP response
+    C->>C: Interpret status headers and body
+```
+
 ## The Web is a stack of contracts
 
 When a client requests `https://example.com/items`, several things happen:

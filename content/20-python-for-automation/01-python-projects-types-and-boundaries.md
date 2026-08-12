@@ -6,6 +6,20 @@
 - Separate pure decision logic from input/output side effects.
 - Use types, dataclasses, exceptions, and explicit configuration boundaries.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[CLI file or API input] --> B[Boundary validation]
+    B --> C[Typed domain objects]
+    C --> D[Pure decision logic]
+    D --> E[Output adapter]
+    E --> F[File API or database]
+    G[Configuration] --> B
+    B --> H[Domain specific failure]
+    E --> H
+```
+
 ## Structure for change and failure
 
 An automation script becomes operational software when someone schedules it, trusts its output, or gives it credentials. Keep the entry point thin and separate four concerns:

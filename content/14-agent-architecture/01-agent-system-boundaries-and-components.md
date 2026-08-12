@@ -9,6 +9,24 @@ By the end of this lesson, you can:
 - choose the minimum autonomy justified by task uncertainty;
 - document authority, budgets, termination, and fallback before selecting a framework.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[User goal] --> B[Controller]
+    B --> C[Model proposal]
+    C --> D[Policy schema and budget checks]
+    D -->|Allowed| E[Narrow tool adapter]
+    D -->|Approval needed| F[Human gate]
+    D -->|Denied| G[Safe terminal state]
+    F -->|Approved| E
+    F -->|Rejected| G
+    E --> H[External system]
+    H --> I[Observation]
+    I --> B
+    B --> J[State and audit trail]
+```
+
 ## Workflow or agent?
 
 A **workflow** follows paths defined in code or configuration. A **model-assisted workflow** uses a model for a narrow transformation inside deterministic routing. An **agent** lets a model choose the next action or tool repeatedly based on observations.

@@ -9,6 +9,19 @@ By the end of this lesson, you will be able to:
 - use a simple study cycle that produces evidence of learning; and
 - establish a baseline without judging yourself by prior experience.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[Baseline attempt] --> B[Orient]
+    B --> C[Explain]
+    C --> D[Retrieve without notes]
+    D --> E[Apply to a changed problem]
+    E --> F[Capture evidence and corrections]
+    F --> G[Schedule a later review]
+    G --> D
+```
+
 ## Learning is a change you can retrieve and use
 
 Reading a page, watching a video, or recognizing an explanation is exposure, not proof of learning. A useful operational definition is: **you learned something when you can retrieve it later and use it in an appropriate situation without copying the source**.

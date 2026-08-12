@@ -9,6 +9,18 @@ By the end of this lesson, you can:
 - identify primary, secondary, and negatively affected actors;
 - turn assumptions into questions that a prototype can answer.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    A[Observed work] --> B[Collected evidence]
+    B --> C[Solution-neutral problem]
+    C --> D[Actors and user needs]
+    D --> E[Risky assumptions]
+    E --> F[Prototype questions]
+    F --> G[Acceptance evidence]
+```
+
 ## Start with the problem, not the bot
 
 "We need an AI agent to answer email" is a solution claim. A testable problem statement is:

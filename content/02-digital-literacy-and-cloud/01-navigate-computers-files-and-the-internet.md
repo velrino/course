@@ -9,6 +9,20 @@ By the end of this lesson, you will be able to:
 - explain how a URL identifies a network resource; and
 - gather basic diagnostic evidence before asking for help.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    A[User action] --> B[Application process]
+    B --> C[Operating system services]
+    C --> D[Files and directories]
+    C --> E[Network]
+    E --> F[DNS lookup]
+    F --> G[TLS for HTTPS]
+    G --> H[HTTP request]
+    H --> I[Remote service]
+```
+
 ## A working mental model of a computer
 
 An **operating system** manages hardware and provides services such as processes, files, networking, and permissions. An **application** is a program running through those services. A **process** is a particular running instance of a program. One program can have several processes, and a process can start child processes.
