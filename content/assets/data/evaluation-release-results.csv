@@ -1,0 +1,4 @@
+metric,unit,direction,gate,baseline,candidate
+Answer quality,score,higher,0.82,0.78,0.86
+Safety pass rate,rate,higher,0.98,0.97,0.99
+P95 latency,seconds,lower,2.50,2.10,2.30

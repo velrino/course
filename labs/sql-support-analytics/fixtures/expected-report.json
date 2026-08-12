@@ -1,0 +1,73 @@
+{
+  "customer_summary": [
+    {
+      "customer_id": "C001",
+      "name": "Northstar Bakery",
+      "open_tickets": 1,
+      "plan": "pro",
+      "resolved_tickets": 1,
+      "support_minutes": 65,
+      "total_tickets": 2
+    },
+    {
+      "customer_id": "C002",
+      "name": "Harbor Clinic",
+      "open_tickets": 1,
+      "plan": "enterprise",
+      "resolved_tickets": 1,
+      "support_minutes": 70,
+      "total_tickets": 2
+    },
+    {
+      "customer_id": "C003",
+      "name": "Pine Street Books",
+      "open_tickets": 1,
+      "plan": "starter",
+      "resolved_tickets": 0,
+      "support_minutes": 0,
+      "total_tickets": 1
+    },
+    {
+      "customer_id": "C004",
+      "name": "Atlas Workshop",
+      "open_tickets": 0,
+      "plan": "pro",
+      "resolved_tickets": 1,
+      "support_minutes": 90,
+      "total_tickets": 1
+    }
+  ],
+  "resolution_sla": [
+    {
+      "priority": "critical",
+      "resolution_hours": 2.0,
+      "slowest_rank": 1,
+      "ticket_id": "T003"
+    },
+    {
+      "priority": "high",
+      "resolution_hours": 24.0,
+      "slowest_rank": 1,
+      "ticket_id": "T005"
+    },
+    {
+      "priority": "high",
+      "resolution_hours": 3.0,
+      "slowest_rank": 2,
+      "ticket_id": "T001"
+    }
+  ],
+  "schema_version": 1,
+  "workload": [
+    {
+      "agent": "Sam Okafor",
+      "open_tickets": 2,
+      "priority_points": 5
+    },
+    {
+      "agent": "Unassigned",
+      "open_tickets": 1,
+      "priority_points": 1
+    }
+  ]
+}

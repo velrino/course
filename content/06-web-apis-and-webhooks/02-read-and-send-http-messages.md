@@ -9,6 +9,21 @@ By the end of this lesson, you will be able to:
 - interpret status-code classes and content metadata; and
 - reason about safety, idempotency, caching, and retries.
 
+## Applied visual
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as HTTP server
+    C->>S: Request with method, target, headers, and optional body
+    S-->>C: Response with status, headers, and optional body
+    Note over C,S: Check status and content type before parsing
+    C->>S: Retry only when method semantics and policy allow
+    S-->>C: A new response with the same intended effect
+```
+
+An HTTP exchange is a pair of messages, and retry safety depends on method semantics plus application policy.
+
 ## Requests and responses are messages
 
 An HTTP request contains a method, target, protocol version, headers, and sometimes a body. A response contains a status code, headers, and sometimes a body.

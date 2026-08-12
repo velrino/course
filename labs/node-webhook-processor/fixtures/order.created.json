@@ -1,0 +1,11 @@
+{
+  "id": "evt_order_1001",
+  "type": "order.created",
+  "occurredAt": "2026-08-11T15:00:00.000Z",
+  "data": {
+    "orderId": "ord_1001",
+    "customerId": "cus_204",
+    "totalCents": 12990,
+    "currency": "USD"
+  }
+}

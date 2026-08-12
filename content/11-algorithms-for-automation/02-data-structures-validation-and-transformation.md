@@ -9,6 +9,25 @@ By the end of this lesson, you can:
 - validate shape, type, domain rules, and cross-field consistency;
 - implement filter, map, group, sort, join, and deduplicate operations locally.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Raw input] --> B[Preserve evidence]
+    B --> C[Parse]
+    C --> D[Normalize]
+    D --> E{Shape and type valid?}
+    E -- No --> R[Reject with reason codes]
+    E -- Yes --> F{Domain and cross-field rules valid?}
+    F -- No --> R
+    F -- Yes --> G{Authorized in context?}
+    G -- No --> R
+    G -- Yes --> H[Deterministic transformations]
+    H --> I[Accepted output]
+```
+
+Preservation precedes normalization, and each validation gate can reject data before business transformations run.
+
 ## Choose structures by invariant
 
 - A **record/map** represents named fields for one entity.

@@ -6,6 +6,24 @@
 - Compare chunking strategies instead of choosing a size by intuition.
 - Carry citation metadata from source file to final answer.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Raw source] --> B[Extract text and structure]
+    B --> C{Extraction complete?}
+    C -- No --> D[Flag OCR or human review]
+    C -- Yes --> E[Normalize and hash]
+    D --> E
+    E --> F[Create structure-aware chunks]
+    F --> G[Attach stable source metadata]
+    G --> H[Index chunks]
+    H --> I[Retrieve evidence]
+    I --> J[Render citation from metadata]
+```
+
+The evidence chain stays auditable because extraction warnings, chunk identity, and citation metadata survive every stage.
+
 ## Extraction is a data-quality problem
 
 PDF text order, repeated headers, scanned pages, tables, and code blocks can all break naive extraction. Preserve both the raw artifact and a normalized representation. Record the extractor name and version, warnings, page or section boundaries, and a checksum. Never silently discard pages that produced no text; flag them for OCR or human review.

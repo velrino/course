@@ -1,0 +1,15 @@
+{
+  "name": "course-docker-health-stack-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "DATA_DIR=.local-state FAILURE_TOKEN=lab-only node solution/app/server.mjs",
+    "test": "node --test test/app.test.mjs test/static-verifier.test.mjs",
+    "verify": "node scripts/verify.mjs solution",
+    "verify:starter": "node scripts/verify.mjs starter"
+  }
+}

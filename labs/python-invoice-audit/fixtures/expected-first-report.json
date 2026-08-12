@@ -1,0 +1,62 @@
+{
+  "accepted": [
+    {
+      "amount": "125.50",
+      "currency": "USD",
+      "invoice_id": "INV-2026-0001",
+      "issued_on": "2026-02-03",
+      "line_items": [
+        {
+          "description": "Ergonomic keyboard",
+          "quantity": 1,
+          "unit_price": "100.00"
+        },
+        {
+          "description": "Cable organizer",
+          "quantity": 2,
+          "unit_price": "12.75"
+        }
+      ],
+      "purchase_order": "PO-2026-0042",
+      "supplier": "Northstar Office Supply"
+    },
+    {
+      "amount": "80.00",
+      "currency": "EUR",
+      "invoice_id": "INV-2026-0002",
+      "issued_on": "2026-02-04",
+      "line_items": [
+        {
+          "description": "Document translation",
+          "quantity": 4,
+          "unit_price": "20.00"
+        }
+      ],
+      "purchase_order": "PO-2026-0047",
+      "supplier": "Harbor Translation Studio"
+    }
+  ],
+  "counts": {
+    "accepted": 2,
+    "rejected": 2,
+    "skipped": 1
+  },
+  "rejected": [
+    {
+      "line": 3,
+      "reason": "amount does not equal the line-item total"
+    },
+    {
+      "line": 4,
+      "reason": "invalid JSON"
+    }
+  ],
+  "schema_version": 1,
+  "skipped": [
+    {
+      "invoice_id": "INV-2026-0001",
+      "line": 5,
+      "reason": "already processed"
+    }
+  ]
+}

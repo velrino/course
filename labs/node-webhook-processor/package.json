@@ -1,0 +1,16 @@
+{
+  "name": "course-node-webhook-processor-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "node scripts/replay-fixture.js",
+    "start": "node solution/src/server.js",
+    "start:starter": "node starter/src/server.js",
+    "test": "node --test test/contract.test.js",
+    "test:starter": "node scripts/run-tests.js starter"
+  }
+}

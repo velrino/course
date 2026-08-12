@@ -9,6 +9,29 @@ By the end of this lesson, you can:
 - compare direct tool choice, router, plan-and-execute, and evaluator loops;
 - record useful action traces without depending on hidden reasoning text.
 
+## Applied visual
+
+```mermaid
+stateDiagram-v2
+    [*] --> Observe
+    Observe --> Propose
+    Propose --> Validate
+    Validate --> Denied: invalid or unauthorized
+    Validate --> Approval: consequential action
+    Validate --> Act: allowed action
+    Approval --> Act: approved
+    Approval --> Stopped: rejected
+    Denied --> Observe: recoverable
+    Denied --> Stopped: terminal
+    Act --> Observe: more work and budget remains
+    Act --> Complete: deterministic success
+    Observe --> Stopped: budget exhausted
+    Complete --> [*]
+    Stopped --> [*]
+```
+
+The controller owns validation, approval, completion, and budget transitions so a model proposal never grants itself authority.
+
 ## Tools are capability boundaries
 
 A tool needs:

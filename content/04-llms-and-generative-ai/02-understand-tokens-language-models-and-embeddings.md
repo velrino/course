@@ -9,6 +9,24 @@ By the end of this lesson, you will be able to:
 - describe embeddings as learned vectors rather than a semantic database; and
 - anticipate how token boundaries affect context, cost, and behavior.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Input text] --> B[Tokenizer]
+    B --> C[Token IDs]
+    C --> D[Language model]
+    D --> E[Next-token probabilities]
+    E --> F[Decoding strategy]
+    F --> G[Selected token]
+    G -->|append and repeat| C
+    C --> H[Embedding model]
+    H --> I[Vector representation]
+    I --> J[Similarity comparison]
+```
+
+The same tokenized input can enter a generation loop or become a vector used for similarity-based retrieval.
+
 ## Models process tokens, not words
 
 A tokenizer converts input into discrete token IDs and reverses generated IDs into text. Tokens may represent words, word pieces, punctuation, whitespace, bytes, or mixtures. Boundaries vary by tokenizer and language. Therefore, character count is not a reliable token count, and the same text can produce different token sequences for different models.

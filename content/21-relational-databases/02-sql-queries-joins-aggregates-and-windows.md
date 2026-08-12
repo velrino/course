@@ -6,6 +6,27 @@
 - Use window functions without collapsing detail rows.
 - Recognize null, duplicate, and outer-join traps.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[State the required row grain] --> B[Choose source tables]
+    B --> C{Keep unmatched left rows?}
+    C -- Yes --> D[Use LEFT JOIN]
+    C -- No --> E[Use INNER JOIN]
+    D --> F[Place right-side filters in ON]
+    E --> G[Apply matching predicates]
+    F --> H{Preserve detail rows?}
+    G --> H
+    H -- Yes --> I[Use window functions]
+    H -- No --> J[Group and aggregate]
+    I --> K[Test nulls and duplicates]
+    J --> K
+    K --> L[Add deterministic ordering]
+```
+
+Choosing the result grain first makes join, filter, aggregate, and window decisions testable instead of accidental.
+
 ## Think in result sets
 
 State the desired result grain first: one row per student, enrollment, course, or day. Most SQL mistakes are grain mistakes. Select named columns rather than `*` in durable code. Qualify ambiguous columns and use deterministic `ORDER BY` when order matters.

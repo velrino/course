@@ -4,6 +4,10 @@ An independent, free-first self-study curriculum for learning artificial intelli
 
 The curriculum uses two commercial syllabi only as a topic map. All lessons are original and rely on public documentation, standards, research papers, government guidance, and reproducible local exercises. No paid model, API, or course subscription is required.
 
+![An AI automation system connects governed data and retrieval to a model, narrow tools, human approval, business systems, and operational monitoring.](content/assets/images/ai-automation-course-system.png)
+
+*The course treats an agent as an observable system with data, tools, controls, people, and measurable outcomes, not as a model in isolation.*
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -12,10 +16,13 @@ The curriculum uses two commercial syllabi only as a topic map. All lessons are 
 - [Visual Course Journey](#visual-course-journey)
 - [Course Stages](#course-stages)
 - [Suggested Learning Paths](#suggested-learning-paths)
+- [Executable Labs](#executable-labs)
+- [Documentation Site](#documentation-site)
 - [Course Map](#course-map)
 - [Complete Chapter Index](#complete-chapter-index)
 - [Capstones and Portfolio](#capstones-and-portfolio)
 - [Sources and Scope](#sources-and-scope)
+- [Contributing and License](#contributing-and-license)
 - [Verification Notes](#verification-notes)
 
 ## Overview
@@ -23,12 +30,14 @@ The curriculum uses two commercial syllabi only as a topic map. All lessons are 
 | Item | Current scope |
 |---|---:|
 | Numbered module directories | 30 (`00` through `29`) |
-| Markdown files in `content/` | 155 |
-| Approximate course length | 85,000 words |
+| Markdown files in `content/` | 188 |
+| Approximate course length | 94,500 words |
 | Technical lessons with explicit local practice | 140 |
 | Orientation chapters | 7 |
 | Specified capstone builds | 5 |
-| Mermaid learning diagrams | 31 |
+| Executable learning labs | 7 |
+| Mermaid learning diagrams | 68 |
+| Original instructional visual assets | 4 |
 | Reference citations in course content | 628 |
 | Unique referenced URLs | 472 |
 | Recommended full-course pace | 40 weeks at 9-10 hours per week |
@@ -75,7 +84,7 @@ flowchart LR
     G -. evidence and reflection .-> A
 ```
 
-Each module starts with a focused Mermaid map of its main process, architecture, or decision cycle. These diagrams render directly on GitHub and remain readable as source in any Markdown editor.
+Each module includes at least two focused Mermaid maps of its main process, architecture, or decision cycle. The executable labs add their own implementation diagrams. These visuals render directly on GitHub and remain readable as source in any Markdown editor.
 
 ## Course Stages
 
@@ -94,6 +103,37 @@ Each module starts with a focused Mermaid map of its main process, architecture,
 - **Governance and delivery path:** prioritize `00`, `03-05`, `09-10`, `14-18`, and `26-28`.
 
 Module 29 can replace Module 20 as the main automation runtime. It does not replace the Python examples and projects in Modules 21-24 or later framework-specific material. Any agent that can change an external system should be designed only after completing Modules 16-18 and 26.
+
+## Executable Labs
+
+The [`labs/`](labs/) directory contains free, synthetic, portfolio-ready systems with starter code, separate solutions, fixtures, failure cases, and automated tests:
+
+1. [Python invoice audit](labs/python-invoice-audit/);
+2. [SQL support analytics](labs/sql-support-analytics/);
+3. [grounded RAG search](labs/rag-grounded-search/);
+4. [Node.js webhook processor](labs/node-webhook-processor/);
+5. [n8n order triage](labs/n8n-order-triage/);
+6. [Docker health stack](labs/docker-health-stack/);
+7. [MCP task server](labs/mcp-task-server/).
+
+Start with the [lab route and evidence standard](labs/README.md). After installing any lab-specific dependencies, run the available suites together with:
+
+```bash
+make test-labs
+```
+
+## Documentation Site
+
+The course also builds as a searchable, responsive MkDocs site with explicit module navigation and browser-local lesson progress. No account or analytics service is required.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+Open `http://127.0.0.1:8000`. Run `make docs` for a strict production build. GitHub Actions validates the source and can publish the same static output to GitHub Pages.
 
 ## Course Map
 
@@ -403,6 +443,12 @@ This repository is not affiliated with either provider and does not reproduce th
 
 Security, privacy, LGPD, governance, and regulation chapters are educational material, not legal advice. Real deployments require current official sources and qualified review appropriate to the jurisdiction and sector.
 
+## Contributing and License
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the learner-outcome, source-quality, exercise, and verification requirements used for changes. Original repository material is available under the [MIT License](LICENSE).
+
+The two commercial syllabus PDFs are explicitly excluded from that license. See [Third-Party Notices](THIRD_PARTY_NOTICES.md) before copying or redistributing material from `references/`.
+
 ## Verification Notes
 
 - All module directories and lesson files follow numbered lowercase kebab-case naming.
@@ -410,6 +456,6 @@ Security, privacy, LGPD, governance, and regulation chapters are educational mat
 - All internal Markdown links resolve.
 - Technical lessons contain learning objectives, free local practice, completion criteria, and references.
 - External references were checked; moved links were corrected. Some authoritative DOI, publisher, and government sites block or time out automated checks.
-- Dependency-free Python and Node.js exercises were executed where supported.
-- The Node.js module's examples parse and run, its test suite passes `4/4`, and its signed-webhook lab verifies retries and duplicate handling.
-- Docker and MCP runtime labs were not executed because Docker and `uv` are not installed in the current environment.
+- The aggregate lab runner passes eight suites: seven behavioral suites plus strict MCP type checking.
+- The executable labs cover Python, SQL, grounded retrieval, Node.js webhooks, n8n workflow contracts, Docker service behavior, and an MCP server tested through the official client SDK.
+- Docker Compose itself and a live n8n import were not executed because Docker and n8n are not installed in the current environment; their static contracts and dependency-free behavior tests pass.

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+<title id="title">Baseline and candidate release evaluation dashboard</title>
+<desc id="desc">Three panels compare answer quality, safety pass rate, and p95 latency. The candidate passes every explicit release gate.</desc>
+<rect width="960" height="500" fill="#f7faf9"/>
+<text x="36" y="52" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#17313b">Release evaluation</text>
+<text x="36" y="82" font-family="system-ui, sans-serif" font-size="16" fill="#40545d">Synthetic example: compare evidence before approving a candidate.</text>
+<rect x="36" y="116" width="280" height="270" rx="6" fill="#ffffff" stroke="#aebdc4"/>
+<text x="56" y="154" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#17313b">Answer quality</text>
+<text x="56" y="196" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Baseline</text>
+<text x="296" y="196" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#40545d">0.78</text>
+<text x="56" y="244" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Candidate</text>
+<text x="296" y="244" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#006b5f">0.86</text>
+<line x1="56" y1="268" x2="296" y2="268" stroke="#d6e0e4"/>
+<text x="56" y="304" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Gate &gt;= 0.82</text>
+<rect x="56" y="326" width="92" height="36" rx="4" fill="#137333"/>
+<text x="102" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="340" y="116" width="280" height="270" rx="6" fill="#ffffff" stroke="#aebdc4"/>
+<text x="360" y="154" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#17313b">Safety pass rate</text>
+<text x="360" y="196" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Baseline</text>
+<text x="600" y="196" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#40545d">97%</text>
+<text x="360" y="244" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Candidate</text>
+<text x="600" y="244" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#006b5f">99%</text>
+<line x1="360" y1="268" x2="600" y2="268" stroke="#d6e0e4"/>
+<text x="360" y="304" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Gate &gt;= 98%</text>
+<rect x="360" y="326" width="92" height="36" rx="4" fill="#137333"/>
+<text x="406" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="644" y="116" width="280" height="270" rx="6" fill="#ffffff" stroke="#aebdc4"/>
+<text x="664" y="154" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#17313b">P95 latency</text>
+<text x="664" y="196" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Baseline</text>
+<text x="904" y="196" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#40545d">2.10s</text>
+<text x="664" y="244" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Candidate</text>
+<text x="904" y="244" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#006b5f">2.30s</text>
+<line x1="664" y1="268" x2="904" y2="268" stroke="#d6e0e4"/>
+<text x="664" y="304" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">Gate &lt;= 2.50s</text>
+<rect x="664" y="326" width="92" height="36" rx="4" fill="#137333"/>
+<text x="710" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff">PASS</text>
+<text x="36" y="438" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#17313b">Overall gate</text>
+<rect x="158" y="411" width="130" height="40" rx="4" fill="#137333"/>
+<text x="223" y="437" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">RELEASE</text>
+<text x="310" y="438" font-family="system-ui, sans-serif" font-size="15" fill="#40545d">All quality, safety, and latency gates must pass.</text>
+</svg>

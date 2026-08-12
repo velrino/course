@@ -1,0 +1,10 @@
+{
+  "orderId": "ord_4103",
+  "customerId": "cus_992",
+  "currency": "USD",
+  "totalCents": 16500,
+  "riskScore": 84,
+  "items": [
+    { "sku": "wireless-headphones", "quantity": 1, "unitCents": 16500 }
+  ]
+}

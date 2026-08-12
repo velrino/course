@@ -4,6 +4,31 @@
 
 Define narrow tools, validate agent outputs, and keep model-generated arguments inside an authorization boundary.
 
+## Applied visual
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Agent loop
+    participant V as Schema validator
+    participant P as Policy boundary
+    participant T as Tool
+    U->>A: Request
+    A->>V: Proposed structured tool call
+    V-->>A: Typed arguments
+    A->>P: Request authorization
+    alt Authorized
+        P->>T: Execute bounded capability
+        T-->>A: Structured result
+        A-->>U: Validated response
+    else Invalid or unauthorized
+        P-->>A: Normalized rejection
+        A-->>U: Safe failure or clarification
+    end
+```
+
+Schema validation establishes shape, but a separate policy boundary decides whether the requested capability may execute.
+
 ## Components of a LangChain agent
 
 A basic agent repeatedly gives a model the current messages and available tool schemas. The model either returns a final response or requests tool calls. Tool results enter the state and the loop continues. The framework manages the loop; you remain responsible for what each tool is allowed to do.

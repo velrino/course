@@ -9,6 +9,21 @@ By the end of this lesson, you will be able to:
 - reduce image size and accidental data inclusion; and
 - distinguish build-time arguments from runtime configuration and secrets.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Build context after dockerignore] --> C[Docker builder]
+    B[Dockerfile instructions] --> C
+    C --> D[Dependency layer]
+    D --> E[Application layer]
+    E --> F[Minimal runtime image]
+    F --> G[Container process]
+    H[Runtime configuration] --> G
+```
+
+Stable dependency layers improve cache reuse, while runtime configuration enters only when the final image becomes a container.
+
 ## A Dockerfile is a build recipe
 
 The builder receives a Dockerfile and a build context. Instructions create image configuration and filesystem layers. Common instructions include:

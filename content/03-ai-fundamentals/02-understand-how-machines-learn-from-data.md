@@ -9,6 +9,22 @@ By the end of this lesson, you will be able to:
 - explain training versus inference; and
 - detect common problems in a proposed dataset.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Examples] --> B[Features and training targets]
+    B --> C[Training objective]
+    C --> D[Optimization]
+    D --> E[Learned parameters]
+    E --> F[Inference with fixed parameters]
+    G[New input] --> F
+    F --> H[Prediction]
+    H --> I[Evaluation on representative cases]
+```
+
+Training changes parameters from examples, whereas inference applies those fixed parameters to new inputs before evaluation.
+
 ## Learning means fitting behavior to an objective
 
 A machine-learning dataset contains **examples**. A feature is an input representation used by a model. A label is a target supplied for supervised learning. Parameters are values adjusted during training. A loss function measures how far predictions are from the training objective; an optimization procedure adjusts parameters to reduce that loss.

@@ -9,6 +9,19 @@ By the end of this lesson, you will be able to:
 - explain Git's working tree, staging area, and repository; and
 - create an inspectable local history without a hosting account.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    W[Working tree] -->|git add| S[Staging area]
+    S -->|git commit| R[Local repository]
+    W -. inspect with git diff .-> I[Review changes]
+    S -. inspect staged diff .-> I
+    R -. inspect with git log .-> I
+```
+
+Git moves selected content through three areas, while inspection commands expose what differs at each boundary.
+
 ## Commands are programs with explicit inputs
 
 A shell reads a command, expands syntax such as paths and variables, starts a program, and reports an exit status. A command generally has:

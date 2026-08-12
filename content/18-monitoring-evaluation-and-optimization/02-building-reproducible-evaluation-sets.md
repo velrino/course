@@ -6,6 +6,27 @@
 - Write deterministic and human/LLM-assisted scorers with explicit rubrics.
 - Preserve enough provenance to reproduce a comparison.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Product risks and real tasks] --> B[Versioned evaluation cases]
+    B --> C[Development set]
+    B --> D[Held-out release set]
+    C --> E[Iterate on prompts and code]
+    E --> F[Run fixed candidate]
+    D --> F
+    F --> G[Deterministic scorers]
+    F --> H[Calibrated human rubric]
+    G --> I[Paired results by slice]
+    H --> I
+    I --> J{Release thresholds met?}
+    J -- Yes --> K[Record manifest and release]
+    J -- No --> E
+```
+
+The held-out set remains outside iteration, and every release decision links scores to one reproducible manifest.
+
 ## An evaluation set is a maintained product asset
 
 Start with the product decision: what must be true before release? Convert real tasks and failure modes into cases. A useful suite includes common traffic, critical workflows, long-tail inputs, unsupported requests, attacks, languages, tool failures, and cases found in production. Avoid random examples that are easy to collect but unrelated to impact.

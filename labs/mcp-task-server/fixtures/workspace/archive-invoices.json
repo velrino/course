@@ -1,0 +1,9 @@
+{
+  "id": "archive-invoices",
+  "title": "Archive reconciled invoices",
+  "details": "Move the verified July batch into the accounting archive.",
+  "status": "completed",
+  "createdAt": "2026-08-01T10:00:00.000Z",
+  "completedAt": "2026-08-08T16:20:00.000Z",
+  "completionNote": "Reconciliation report attached to the internal ticket."
+}

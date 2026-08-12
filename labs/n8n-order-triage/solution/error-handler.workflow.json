@@ -1,0 +1,32 @@
+{
+  "name": "Order Triage - Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [-260, 0],
+      "id": "c86a3280-c94c-4fc9-9efc-93e626c5e001",
+      "name": "Workflow Error"
+    },
+    {
+      "parameters": {
+        "jsCode": "const failure = $input.first().json;\nreturn [{ json: { severity: 'error', event: 'workflow_execution_failed', workflowId: failure.workflow?.id ?? null, workflowName: failure.workflow?.name ?? null, executionId: failure.execution?.id ?? null, failedNode: failure.execution?.lastNodeExecuted ?? null, message: failure.execution?.error?.message ?? 'Unknown workflow error', observedAt: new Date().toISOString() } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "id": "c86a3280-c94c-4fc9-9efc-93e626c5e002",
+      "name": "Build Failure Record"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Workflow Error": { "main": [[{ "node": "Build Failure Record", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "c86a3280-c94c-4fc9-9efc-93e626c5e003",
+  "meta": { "templateCredsSetupCompleted": true },
+  "tags": []
+}

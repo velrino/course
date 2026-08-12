@@ -1,0 +1,10 @@
+{
+  "orderId": "ord_4104",
+  "customerId": "cus_301",
+  "currency": "EUR",
+  "totalCents": 100000,
+  "riskScore": 10,
+  "items": [
+    { "sku": "office-chair-bulk", "quantity": 5, "unitCents": 20000 }
+  ]
+}

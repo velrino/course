@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "expected_answerable": true,
+      "id": "password-expiry",
+      "reciprocal_rank": 1.0,
+      "retrieval_hit": true,
+      "status": "answered",
+      "top_ids": [
+        "security-passwords"
+      ]
+    },
+    {
+      "expected_answerable": true,
+      "id": "attachment-retention",
+      "reciprocal_rank": 1.0,
+      "retrieval_hit": true,
+      "status": "answered",
+      "top_ids": [
+        "privacy-retention",
+        "security-passwords"
+      ]
+    },
+    {
+      "expected_answerable": true,
+      "id": "pro-rate-limit",
+      "reciprocal_rank": 1.0,
+      "retrieval_hit": true,
+      "status": "answered",
+      "top_ids": [
+        "api-rate-limits",
+        "account-exports",
+        "billing-refunds"
+      ]
+    },
+    {
+      "expected_answerable": true,
+      "id": "p1-response",
+      "reciprocal_rank": 1.0,
+      "retrieval_hit": true,
+      "status": "answered",
+      "top_ids": [
+        "support-severity"
+      ]
+    },
+    {
+      "expected_answerable": true,
+      "id": "onboarding-refund",
+      "reciprocal_rank": 1.0,
+      "retrieval_hit": true,
+      "status": "answered",
+      "top_ids": [
+        "billing-refunds"
+      ]
+    },
+    {
+      "expected_answerable": false,
+      "id": "employee-parking",
+      "reciprocal_rank": 0.0,
+      "retrieval_hit": null,
+      "status": "abstained",
+      "top_ids": []
+    },
+    {
+      "expected_answerable": false,
+      "id": "office-clothing",
+      "reciprocal_rank": 0.0,
+      "retrieval_hit": null,
+      "status": "abstained",
+      "top_ids": []
+    }
+  ],
+  "k": 3,
+  "metrics": {
+    "abstention_accuracy": 1.0,
+    "answerable_case_count": 5,
+    "case_count": 7,
+    "citation_validity": 1.0,
+    "mean_reciprocal_rank": 1.0,
+    "recall_at_k": 1.0
+  },
+  "schema_version": 1
+}

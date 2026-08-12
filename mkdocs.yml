@@ -1,0 +1,316 @@
+site_name: Free AI Automation and Agent Engineering Curriculum
+site_description: A free-first, evidence-driven course in AI automation and responsible agent engineering.
+site_url: https://velrino.github.io/course/
+repo_name: velrino/course
+repo_url: https://github.com/velrino/course
+edit_uri: edit/master/content/
+docs_dir: content
+site_dir: site
+use_directory_urls: true
+strict: true
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\\s\\-.,!=\\[\\]()"`/]+|\\.(?!\\d)|&[lg]t;|(?!\\b)(?=[A-Z][a-z])'
+
+hooks:
+  - scripts/mkdocs_hooks.py
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: On this page
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/vendor/mermaid.min.js
+  - assets/javascripts/mermaid.js
+  - assets/javascripts/progress.js
+
+copyright: Original course material is available under the MIT License. Third-party reference PDFs are excluded.
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
+    anchors: warn
+
+nav:
+  # BEGIN GENERATED COURSE NAV
+  - "Home": "index.md"
+  - "Course Index": "00-course-index.md"
+  - "Practice Labs": "labs.md"
+  - "Image Provenance": "assets/images/README.md"
+  - "Modules":
+      - "00. Course Orientation and Study Plan":
+          - "Module overview": "00-course-orientation-and-study-plan/index.md"
+          - "How to Use This Course": "00-course-orientation-and-study-plan/01-how-to-use-this-course.md"
+          - "Competency Map": "00-course-orientation-and-study-plan/02-competency-map.md"
+          - "Forty-Week Study Plan": "00-course-orientation-and-study-plan/03-forty-week-study-plan.md"
+          - "Free and Local Learning Environment": "00-course-orientation-and-study-plan/04-free-local-environment.md"
+          - "Assessment and Evidence": "00-course-orientation-and-study-plan/05-assessment-and-evidence.md"
+          - "Source and Reference Policy": "00-course-orientation-and-study-plan/06-source-and-reference-policy.md"
+          - "Syllabus Coverage Map": "00-course-orientation-and-study-plan/07-syllabus-coverage-map.md"
+      - "01. Learning How to Learn":
+          - "Module overview": "01-learning-how-to-learn/index.md"
+          - "Build an Evidence-Based Study System": "01-learning-how-to-learn/01-build-an-evidence-based-study-system.md"
+          - "Turn a Syllabus into a Knowledge Map": "01-learning-how-to-learn/02-turn-a-syllabus-into-a-knowledge-map.md"
+          - "Retrieve, Space, and Interleave": "01-learning-how-to-learn/03-retrieve-space-and-interleave.md"
+          - "Practice, Feedback, and Debugging": "01-learning-how-to-learn/04-practice-feedback-and-debugging.md"
+          - "Run a Sustainable Weekly Learning Loop": "01-learning-how-to-learn/05-run-a-sustainable-weekly-learning-loop.md"
+      - "02. Digital Literacy and Cloud":
+          - "Module overview": "02-digital-literacy-and-cloud/index.md"
+          - "Navigate Computers, Files, and the Internet": "02-digital-literacy-and-cloud/01-navigate-computers-files-and-the-internet.md"
+          - "Use the Command Line and Git": "02-digital-literacy-and-cloud/02-use-the-command-line-and-git.md"
+          - "Read Data Formats, Databases, and Integrations": "02-digital-literacy-and-cloud/03-read-data-formats-databases-and-integrations.md"
+          - "Build a Cloud Mental Model": "02-digital-literacy-and-cloud/04-build-a-cloud-mental-model.md"
+          - "Protect Accounts, Data, and Decisions": "02-digital-literacy-and-cloud/05-protect-accounts-data-and-decisions.md"
+      - "03. AI Fundamentals":
+          - "Module overview": "03-ai-fundamentals/index.md"
+          - "Frame Problems for AI": "03-ai-fundamentals/01-frame-problems-for-ai.md"
+          - "Understand How Machines Learn from Data": "03-ai-fundamentals/02-understand-how-machines-learn-from-data.md"
+          - "Evaluate Models and Generalization": "03-ai-fundamentals/03-evaluate-models-and-generalization.md"
+          - "Distinguish Agents from Models and Workflows": "03-ai-fundamentals/04-distinguish-agents-from-models-and-workflows.md"
+          - "Use AI Responsibly and Critically": "03-ai-fundamentals/05-use-ai-responsibly-and-critically.md"
+      - "04. LLMs and Generative AI":
+          - "Module overview": "04-llms-and-generative-ai/index.md"
+          - "Map the Generative AI Landscape": "04-llms-and-generative-ai/01-map-the-generative-ai-landscape.md"
+          - "Understand Tokens, Language Models, and Embeddings": "04-llms-and-generative-ai/02-understand-tokens-language-models-and-embeddings.md"
+          - "Understand Transformers and Attention": "04-llms-and-generative-ai/03-understand-transformers-and-attention.md"
+          - "Separate Training, Alignment, and Inference": "04-llms-and-generative-ai/04-separate-training-alignment-and-inference.md"
+          - "Run and Evaluate a Small Local Model": "04-llms-and-generative-ai/05-run-and-evaluate-a-small-local-model.md"
+      - "05. Prompt, Context, and Loop Engineering":
+          - "Module overview": "05-prompt-context-and-loop-engineering/index.md"
+          - "Write Clear Prompt Contracts": "05-prompt-context-and-loop-engineering/01-write-clear-prompt-contracts.md"
+          - "Use Examples and Structured Outputs": "05-prompt-context-and-loop-engineering/02-use-examples-and-structured-outputs.md"
+          - "Engineer Context, Retrieval, and Memory": "05-prompt-context-and-loop-engineering/03-engineer-context-retrieval-and-memory.md"
+          - "Design Bounded Tool and Human Loops": "05-prompt-context-and-loop-engineering/04-design-bounded-tool-and-human-loops.md"
+          - "Build Harnesses and Evaluation Loops": "05-prompt-context-and-loop-engineering/05-build-harnesses-and-evaluation-loops.md"
+      - "06. Web, APIs, and Webhooks":
+          - "Module overview": "06-web-apis-and-webhooks/index.md"
+          - "Understand the Web Request Path": "06-web-apis-and-webhooks/01-understand-the-web-request-path.md"
+          - "Read and Send HTTP Messages": "06-web-apis-and-webhooks/02-read-and-send-http-messages.md"
+          - "Design and Consume REST APIs": "06-web-apis-and-webhooks/03-design-and-consume-rest-apis.md"
+          - "Describe APIs with OpenAPI": "06-web-apis-and-webhooks/04-describe-apis-with-openapi.md"
+          - "Receive Webhooks Reliably and Securely": "06-web-apis-and-webhooks/05-receive-webhooks-reliably-and-securely.md"
+      - "07. Docker and Infrastructure":
+          - "Module overview": "07-docker-and-infrastructure/index.md"
+          - "Understand Images and Containers": "07-docker-and-infrastructure/01-understand-images-and-containers.md"
+          - "Build Reproducible Images with Dockerfiles": "07-docker-and-infrastructure/02-build-reproducible-images-with-dockerfiles.md"
+          - "Configure Runtime, Storage, and Networks": "07-docker-and-infrastructure/03-configure-runtime-storage-and-networks.md"
+          - "Orchestrate Local Services with Compose": "07-docker-and-infrastructure/04-orchestrate-local-services-with-compose.md"
+          - "Harden, Observe, and Debug Containers": "07-docker-and-infrastructure/05-harden-observe-and-debug-containers.md"
+      - "08. Model Context Protocol":
+          - "Module overview": "08-model-context-protocol/index.md"
+          - "Understand MCP Architecture and Lifecycle": "08-model-context-protocol/01-understand-mcp-architecture-and-lifecycle.md"
+          - "Design Tools, Resources, and Prompts": "08-model-context-protocol/02-design-tools-resources-and-prompts.md"
+          - "Build a Local MCP Server": "08-model-context-protocol/03-build-a-local-mcp-server.md"
+          - "Test, Inspect, and Connect MCP Servers": "08-model-context-protocol/04-test-inspect-and-connect-mcp-servers.md"
+          - "Secure and Govern MCP Integrations": "08-model-context-protocol/05-secure-and-govern-mcp-integrations.md"
+      - "09. Process Mapping and Opportunities":
+          - "Module overview": "09-process-mapping-and-opportunities/index.md"
+          - "Process Boundaries and the Current State": "09-process-mapping-and-opportunities/01-process-boundaries-and-current-state.md"
+          - "BPMN and Service Blueprints": "09-process-mapping-and-opportunities/02-bpmn-and-service-blueprints.md"
+          - "Opportunity Discovery and Prioritization": "09-process-mapping-and-opportunities/03-opportunity-discovery-and-prioritization.md"
+          - "Feasibility, Value, and Metrics": "09-process-mapping-and-opportunities/04-feasibility-value-and-metrics.md"
+          - "Stakeholders, Risks, and the Automation Brief": "09-process-mapping-and-opportunities/05-stakeholders-risks-and-automation-brief.md"
+      - "10. Use-Case Design":
+          - "Module overview": "10-use-case-design/index.md"
+          - "Problem Framing and User Needs": "10-use-case-design/01-problem-framing-and-user-needs.md"
+          - "User Stories and Acceptance Criteria": "10-use-case-design/02-user-stories-and-acceptance-criteria.md"
+          - "Storyboards and Service Scenarios": "10-use-case-design/03-storyboards-and-service-scenarios.md"
+          - "Low-Fidelity Prototypes and Tests": "10-use-case-design/04-low-fidelity-prototypes-and-tests.md"
+          - "Use-Case Specification and Handoff": "10-use-case-design/05-use-case-specification-and-handoff.md"
+      - "11. Algorithms for Automation":
+          - "Module overview": "11-algorithms-for-automation/index.md"
+          - "From Process to Algorithm": "11-algorithms-for-automation/01-from-process-to-algorithm.md"
+          - "Data Structures, Validation, and Transformation": "11-algorithms-for-automation/02-data-structures-validation-and-transformation.md"
+          - "Branching, Loops, and State Machines": "11-algorithms-for-automation/03-branching-loops-and-state-machines.md"
+          - "Scheduling, Retries, and Idempotency": "11-algorithms-for-automation/04-scheduling-retries-and-idempotency.md"
+          - "Testing, Complexity, and Observability": "11-algorithms-for-automation/05-testing-complexity-and-observability.md"
+      - "12. n8n Fundamentals":
+          - "Module overview": "12-n8n-fundamentals/index.md"
+          - "Local Installation and the Editor": "12-n8n-fundamentals/01-local-installation-and-editor-tour.md"
+          - "Triggers, Nodes, and a First Workflow": "12-n8n-fundamentals/02-triggers-nodes-and-first-workflow.md"
+          - "Items, Expressions, and Data Mapping": "12-n8n-fundamentals/03-items-expressions-and-data-mapping.md"
+          - "Branching, Merging, and Looping": "12-n8n-fundamentals/04-branching-merging-and-looping.md"
+          - "Webhooks, Executions, and Error Workflows": "12-n8n-fundamentals/05-webhooks-executions-and-error-workflows.md"
+      - "13. Advanced n8n and Integrations":
+          - "Module overview": "13-advanced-n8n-and-integrations/index.md"
+          - "HTTP APIs, Authentication, and Pagination": "13-advanced-n8n-and-integrations/01-http-apis-authentication-and-pagination.md"
+          - "Subworkflows, Reuse, and Contracts": "13-advanced-n8n-and-integrations/02-subworkflows-reuse-and-contracts.md"
+          - "Resilience, Rate Limits, and Idempotency": "13-advanced-n8n-and-integrations/03-resilience-rate-limits-and-idempotency.md"
+          - "Self-Hosting, Security, and Secrets": "13-advanced-n8n-and-integrations/04-self-hosting-security-and-secrets.md"
+          - "Scaling, Monitoring, and Release Operations": "13-advanced-n8n-and-integrations/05-scaling-monitoring-and-release-operations.md"
+      - "14. Agent Architecture":
+          - "Module overview": "14-agent-architecture/index.md"
+          - "Agent System Boundaries and Components": "14-agent-architecture/01-agent-system-boundaries-and-components.md"
+          - "Tools, Planning, and Control Loops": "14-agent-architecture/02-tools-planning-and-control-loops.md"
+          - "Memory, Context, and Retrieval": "14-agent-architecture/03-memory-context-and-retrieval.md"
+          - "Multi-Agent Orchestration Patterns": "14-agent-architecture/04-multi-agent-orchestration-patterns.md"
+          - "Safety, Evaluation, and Human Oversight": "14-agent-architecture/05-safety-evaluation-and-human-oversight.md"
+      - "15. RAG, Knowledge Sources, and Memory":
+          - "Module overview": "15-rag-knowledge-sources-and-memory/index.md"
+          - "RAG Architecture and Source Governance": "15-rag-knowledge-sources-and-memory/01-rag-architecture-and-source-governance.md"
+          - "Ingestion, Chunking, and Citations": "15-rag-knowledge-sources-and-memory/02-ingestion-chunking-and-citations.md"
+          - "Embeddings, Vector Search, and Hybrid Retrieval": "15-rag-knowledge-sources-and-memory/03-embeddings-vector-search-and-hybrid-retrieval.md"
+          - "Grounded Generation and RAG Evaluation": "15-rag-knowledge-sources-and-memory/04-grounded-generation-and-rag-evaluation.md"
+          - "Conversation Memory and Knowledge Lifecycle": "15-rag-knowledge-sources-and-memory/05-conversation-memory-and-knowledge-lifecycle.md"
+      - "16. Human-in-the-Loop and Multimodality":
+          - "Module overview": "16-human-in-the-loop-and-multimodality/index.md"
+          - "Designing Human Oversight": "16-human-in-the-loop-and-multimodality/01-designing-human-oversight.md"
+          - "Durable Approval Workflows": "16-human-in-the-loop-and-multimodality/02-durable-approval-workflows.md"
+          - "Review Interfaces, Feedback, and Escalation": "16-human-in-the-loop-and-multimodality/03-review-interfaces-feedback-and-escalation.md"
+          - "Local Multimodal Pipelines": "16-human-in-the-loop-and-multimodality/04-local-multimodal-pipelines.md"
+          - "Multimodal Quality, Accessibility, and Safety": "16-human-in-the-loop-and-multimodality/05-multimodal-quality-accessibility-and-safety.md"
+      - "17. Security, Privacy, and LGPD":
+          - "Module overview": "17-security-privacy-and-lgpd/index.md"
+          - "Threat Modeling AI Automation": "17-security-privacy-and-lgpd/01-threat-modeling-ai-automation.md"
+          - "LGPD Foundations for AI Systems": "17-security-privacy-and-lgpd/02-lgpd-foundations-for-ai-systems.md"
+          - "Privacy Engineering and Impact Assessment": "17-security-privacy-and-lgpd/03-privacy-engineering-and-impact-assessment.md"
+          - "Vendors, International Transfers, and Data Security": "17-security-privacy-and-lgpd/04-vendors-international-transfers-and-data-security.md"
+          - "Security Testing and Incident Response": "17-security-privacy-and-lgpd/05-security-testing-and-incident-response.md"
+      - "18. Monitoring, Evaluation, and Optimization":
+          - "Module overview": "18-monitoring-evaluation-and-optimization/index.md"
+          - "Observability for AI Workflows": "18-monitoring-evaluation-and-optimization/01-observability-for-ai-workflows.md"
+          - "Building Reproducible Evaluation Sets": "18-monitoring-evaluation-and-optimization/02-building-reproducible-evaluation-sets.md"
+          - "Evaluating RAG, Tools, and Agents": "18-monitoring-evaluation-and-optimization/03-evaluating-rag-tools-and-agents.md"
+          - "Experiment Design and Optimization": "18-monitoring-evaluation-and-optimization/04-experiment-design-and-optimization.md"
+          - "Production Monitoring and Release Gates": "18-monitoring-evaluation-and-optimization/05-production-monitoring-and-release-gates.md"
+      - "19. Multi-Agent Orchestration":
+          - "Module overview": "19-multi-agent-orchestration/index.md"
+          - "When and How to Use Multiple Agents": "19-multi-agent-orchestration/01-when-and-how-to-use-multiple-agents.md"
+          - "Agent Contracts, Context, and State": "19-multi-agent-orchestration/02-agent-contracts-context-and-state.md"
+          - "Routing, Parallelism, and Synthesis": "19-multi-agent-orchestration/03-routing-parallelism-and-synthesis.md"
+          - "Multi-Agent Reliability, Security, and Governance": "19-multi-agent-orchestration/04-reliability-security-and-governance.md"
+          - "Multi-Agent Capstone and Evaluation": "19-multi-agent-orchestration/05-multi-agent-capstone-and-evaluation.md"
+      - "20. Python for Automation":
+          - "Module overview": "20-python-for-automation/index.md"
+          - "Python Projects, Types, and Boundaries": "20-python-for-automation/01-python-projects-types-and-boundaries.md"
+          - "Files, Command Lines, and Safe Batch Processing": "20-python-for-automation/02-files-command-lines-and-safe-batch-processing.md"
+          - "HTTP APIs, Validation, and Resilience": "20-python-for-automation/03-http-apis-validation-and-resilience.md"
+          - "Concurrency, Scheduling, and Recovery": "20-python-for-automation/04-concurrency-scheduling-and-recovery.md"
+          - "Testing, Logging, and Automation Capstone": "20-python-for-automation/05-testing-logging-and-automation-capstone.md"
+      - "21. Relational Databases":
+          - "Module overview": "21-relational-databases/index.md"
+          - "Relational Modeling and Constraints": "21-relational-databases/01-relational-modeling-and-constraints.md"
+          - "SQL Queries, Joins, Aggregates, and Windows": "21-relational-databases/02-sql-queries-joins-aggregates-and-windows.md"
+          - "Transactions, Concurrency, and Idempotency": "21-relational-databases/03-transactions-concurrency-and-idempotency.md"
+          - "Indexes, Query Plans, and Performance": "21-relational-databases/04-indexes-query-plans-and-performance.md"
+          - "Python, PostgreSQL Security, and Operations": "21-relational-databases/05-python-postgresql-security-and-operations.md"
+      - "22. Data Analysis and Statistics":
+          - "Module overview": "22-data-analysis-and-statistics/index.md"
+          - "Questions, Data Provenance, and Cleaning": "22-data-analysis-and-statistics/01-questions-data-provenance-and-cleaning.md"
+          - "Exploratory Analysis and Descriptive Statistics": "22-data-analysis-and-statistics/02-exploratory-analysis-and-descriptive-statistics.md"
+          - "Data Visualization and Communication": "22-data-analysis-and-statistics/03-data-visualization-and-communication.md"
+          - "Sampling, Uncertainty, and Hypothesis Tests": "22-data-analysis-and-statistics/04-sampling-uncertainty-and-hypothesis-tests.md"
+          - "Experiments, Regression, and Reproducible Reporting": "22-data-analysis-and-statistics/05-experiments-regression-and-reproducible-reporting.md"
+      - "23. LangChain and LangGraph":
+          - "Module overview": "23-langchain-and-langgraph/index.md"
+          - "Framework, Runtime, and Harness": "23-langchain-and-langgraph/01-framework-runtime-and-harness.md"
+          - "Models, Tools, and Structured Output": "23-langchain-and-langgraph/02-models-tools-and-structured-output.md"
+          - "State, Nodes, Edges, and Routing": "23-langchain-and-langgraph/03-state-nodes-edges-and-routing.md"
+          - "Persistence, Interrupts, and Approval": "23-langchain-and-langgraph/04-persistence-interrupts-and-approval.md"
+          - "Project: Stateful Support Routing": "23-langchain-and-langgraph/05-support-routing-project.md"
+      - "24. CrewAI":
+          - "Module overview": "24-crewai/index.md"
+          - "Crews, Flows, and Architectural Fit": "24-crewai/01-crews-flows-and-fit.md"
+          - "Agents, Tasks, and Processes": "24-crewai/02-agents-tasks-and-processes.md"
+          - "Flows, State, and Control": "24-crewai/03-flows-state-and-control.md"
+          - "Tools, Memory, Knowledge, and Guardrails": "24-crewai/04-tools-memory-knowledge-and-guardrails.md"
+          - "Project: Evidence-Grounded Research Crew": "24-crewai/05-research-crew-project.md"
+      - "25. Fine-Tuning and Model Adaptation":
+          - "Module overview": "25-fine-tuning-and-model-adaptation/index.md"
+          - "Choose the Right Adaptation": "25-fine-tuning-and-model-adaptation/01-choose-the-right-adaptation.md"
+          - "Dataset Design and Quality": "25-fine-tuning-and-model-adaptation/02-dataset-design-and-quality.md"
+          - "Supervised Fine-Tuning": "25-fine-tuning-and-model-adaptation/03-supervised-fine-tuning.md"
+          - "LoRA, QLoRA, and PEFT": "25-fine-tuning-and-model-adaptation/04-lora-qlora-and-peft.md"
+          - "Evaluation, Release, and Rollback": "25-fine-tuning-and-model-adaptation/05-evaluation-release-and-rollback.md"
+      - "26. Ethics, Governance, Impact, and Risk":
+          - "Module overview": "26-ethics-governance-impact-and-risk/index.md"
+          - "Ethical Reasoning and Human Rights": "26-ethics-governance-impact-and-risk/01-ethical-reasoning-and-human-rights.md"
+          - "Governance Operating Model": "26-ethics-governance-impact-and-risk/02-governance-operating-model.md"
+          - "Impact and Risk Assessment": "26-ethics-governance-impact-and-risk/03-impact-and-risk-assessment.md"
+          - "Transparency, Audit, and Documentation": "26-ethics-governance-impact-and-risk/04-transparency-audit-and-documentation.md"
+          - "Regulation and Policy Mapping": "26-ethics-governance-impact-and-risk/05-regulation-and-policy-mapping.md"
+      - "27. Project Management, Adoption, and Change":
+          - "Module overview": "27-project-management-adoption-and-change/index.md"
+          - "Discovery, Outcomes, and Roadmap": "27-project-management-adoption-and-change/01-discovery-outcomes-and-roadmap.md"
+          - "Backlogs, Iterations, and Technical Challenges": "27-project-management-adoption-and-change/02-backlogs-iterations-and-tech-challenges.md"
+          - "Stakeholders, Work Design, and Adoption": "27-project-management-adoption-and-change/03-stakeholders-work-design-and-adoption.md"
+          - "Pilot, Rollout, and Operations": "27-project-management-adoption-and-change/04-pilot-rollout-and-operations.md"
+          - "Value Measurement and Continuous Improvement": "27-project-management-adoption-and-change/05-value-measurement-and-continuous-improvement.md"
+      - "28. Capstone Projects and Portfolio":
+          - "Module overview": "28-capstone-projects-and-portfolio/index.md"
+          - "Capstone Rules and Rubric": "28-capstone-projects-and-portfolio/01-capstone-rules-and-rubric.md"
+          - "Capstone: n8n Operations Automation": "28-capstone-projects-and-portfolio/02-n8n-operations-automation.md"
+          - "Capstone: Evidence-Grounded RAG Assistant": "28-capstone-projects-and-portfolio/03-evidence-grounded-rag-assistant.md"
+          - "Capstone: Data-to-Decision Workbook": "28-capstone-projects-and-portfolio/04-data-to-decision-workbook.md"
+          - "Capstone: Stateful Agent With Human Approval": "28-capstone-projects-and-portfolio/05-stateful-agent-with-human-approval.md"
+          - "Capstone: Multi-Agent Analysis System": "28-capstone-projects-and-portfolio/06-multi-agent-analysis-system.md"
+          - "Portfolio and Presentation": "28-capstone-projects-and-portfolio/07-portfolio-and-presentation.md"
+      - "29. Node.js for Automation":
+          - "Module overview": "29-nodejs-for-automation/index.md"
+          - "Node.js Runtime and Project Structure": "29-nodejs-for-automation/01-nodejs-runtime-and-project-structure.md"
+          - "Files, CLI, and Data Validation": "29-nodejs-for-automation/02-files-cli-and-data-validation.md"
+          - "HTTP APIs, Webhooks, and Retries": "29-nodejs-for-automation/03-http-apis-webhooks-and-retries.md"
+          - "Async Concurrency, Queues, and Idempotency": "29-nodejs-for-automation/04-async-concurrency-queues-and-idempotency.md"
+          - "Testing, Logging, and an Automation Capstone": "29-nodejs-for-automation/05-testing-logging-and-automation-capstone.md"
+  - "Contributing": "https://github.com/velrino/course/blob/master/CONTRIBUTING.md"
+  - "License": "https://github.com/velrino/course/blob/master/LICENSE"
+  - "Third-Party Notices": "https://github.com/velrino/course/blob/master/THIRD_PARTY_NOTICES.md"
+  # END GENERATED COURSE NAV

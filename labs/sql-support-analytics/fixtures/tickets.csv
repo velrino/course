@@ -1,0 +1,7 @@
+ticket_id,customer_id,assigned_agent_id,priority,status,subject,opened_at,resolved_at
+T001,C001,A001,high,resolved,Checkout page times out,2026-01-02T09:00:00,2026-01-02T12:00:00
+T002,C001,A003,medium,open,Inventory webhook delayed,2026-01-04T10:00:00,
+T003,C002,A001,critical,resolved,Patient portal unavailable,2026-01-03T08:00:00,2026-01-03T10:00:00
+T004,C003,,low,open,Update billing address,2026-01-04T11:30:00,
+T005,C004,A002,high,resolved,Duplicate annual charge,2026-01-03T09:00:00,2026-01-04T09:00:00
+T006,C002,A003,high,pending,Export integration stalls,2026-01-05T07:00:00,

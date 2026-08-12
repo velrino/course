@@ -1,0 +1,29 @@
+{
+  "name": "course-mcp-task-server-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsx solution/src/index.ts",
+    "start:starter": "tsx starter/src/index.ts",
+    "test": "node --import tsx --test test/sdk-contract.test.ts",
+    "test:starter": "node scripts/run-tests.mjs starter",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
+  }
+}

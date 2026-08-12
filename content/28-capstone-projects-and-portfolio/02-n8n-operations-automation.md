@@ -4,6 +4,28 @@
 
 Build a reliable workflow that receives synthetic service requests, validates them, enriches them from a local source, routes exceptions, and records an auditable result.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Authenticated webhook] --> B[Validate schema and sensitive fields]
+    B --> C{Duplicate idempotency key?}
+    C -- Yes --> D[Return prior bounded result]
+    C -- No --> E[Enrich from local source]
+    E --> F[Apply deterministic routing]
+    F --> G{Missing high cost or safety risk?}
+    G -- Yes --> H[Human review queue]
+    G -- No --> I[Optional allowlisted classification]
+    I --> J{Model unavailable or uncertain?}
+    J -- Yes --> H
+    J -- No --> K[Write one operation record]
+    H --> K
+    K --> L[Store minimal audit event]
+    L --> M[Return bounded response]
+```
+
+Risk, uncertainty, and duplicate delivery all have explicit paths before the workflow records a result.
+
 ## Scenario
 
 A fictional facilities team receives requests through a webhook. Routine requests with complete fields can be categorized and written to a local test database. Missing, duplicated, high-cost, or safety-related requests must enter a human review queue. No real message or work order is sent.

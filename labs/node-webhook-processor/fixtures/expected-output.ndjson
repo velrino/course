@@ -1,0 +1,3 @@
+{"level":"info","event":"delivery_attempt","deliveryId":"evt_order_1001","attempt":1,"status":"attempting"}
+{"level":"info","event":"delivery_processed","deliveryId":"evt_order_1001","attempt":1,"status":"processed"}
+{"level":"info","event":"duplicate_delivery","deliveryId":"evt_order_1001","attempt":0,"status":"duplicate"}

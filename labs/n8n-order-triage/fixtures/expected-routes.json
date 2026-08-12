@@ -1,0 +1,6 @@
+{
+  "standard-order.json": "automatic",
+  "manual-review-order.json": "manual_review",
+  "boundary-order.json": "manual_review",
+  "invalid-order.json": "invalid"
+}

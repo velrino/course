@@ -1,1 +1,22 @@
 .DS_Store
+
+# Documentation builds and local environments
+site/
+.venv/
+
+# Language and package caches
+__pycache__/
+*.py[cod]
+node_modules/
+.npm/
+
+# Test and coverage output
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+
+# Runtime artifacts created by learning labs
+labs/**/var/
+labs/**/tmp/
+labs/**/output/

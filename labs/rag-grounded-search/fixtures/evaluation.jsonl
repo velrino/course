@@ -1,0 +1,7 @@
+{"id":"password-expiry","query":"How many minutes before a password reset link expires?","answerable":true,"relevant_ids":["security-passwords"]}
+{"id":"attachment-retention","query":"When are support ticket attachments deleted?","answerable":true,"relevant_ids":["privacy-retention"]}
+{"id":"pro-rate-limit","query":"What is the Pro API request limit per minute?","answerable":true,"relevant_ids":["api-rate-limits"]}
+{"id":"p1-response","query":"What initial response target applies to a P1 incident?","answerable":true,"relevant_ids":["support-severity"]}
+{"id":"onboarding-refund","query":"Can custom onboarding fees be refunded?","answerable":true,"relevant_ids":["billing-refunds"]}
+{"id":"employee-parking","query":"Where can employees park?","answerable":false,"relevant_ids":[]}
+{"id":"office-clothing","query":"What is the office dress code?","answerable":false,"relevant_ids":[]}

@@ -6,6 +6,25 @@
 - Distinguish personal, sensitive, anonymized, and derived data.
 - Recognize when specialist legal review is necessary.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Map the processing purpose] --> B{Data linked to a person?}
+    B -- No --> C[Verify effective anonymization]
+    B -- Yes --> D{Sensitive or high impact?}
+    D -- Yes --> E[Escalate for specialist review]
+    D -- No --> F[Validate legal hypothesis]
+    E --> G[Apply necessity and safeguards]
+    F --> G
+    C --> G
+    G --> H[Define retention and access]
+    H --> I[Enable rights and review]
+    I --> J[Retain accountability evidence]
+```
+
+The classification is only the start: every path still requires purpose limitation, safeguards, rights handling, and evidence.
+
 ## Read the law from the processing activity outward
 
 Brazil's Lei Geral de Protecao de Dados Pessoais (LGPD), Law No. 13,709/2018, regulates processing of personal data, including digital processing. This lesson is engineering education, not legal advice. Identify the applicable jurisdiction and obtain qualified advice for a real deployment.

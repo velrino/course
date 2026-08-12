@@ -1,0 +1,8 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    # TODO 7: Add the named state volume and a Compose healthcheck.
+    # TODO 8: Harden the service and gate a probe on service_healthy.

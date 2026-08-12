@@ -4,6 +4,24 @@
 
 Turn outcomes and risks into a prioritized backlog, define testable increments, and use technical challenges to produce evidence rather than demos.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Outcome or material risk] --> B[Prioritized backlog item]
+    B --> C[Question and fixed baseline]
+    C --> D[Cases thresholds and stop rule]
+    D --> E[Timeboxed technical challenge]
+    E --> F[Reproducible evidence package]
+    F --> G{Decision}
+    G -- Adopt --> H[Usable increment]
+    G -- Revise --> B
+    G -- Reject --> I[Record learning and close]
+    G -- More evidence --> C
+```
+
+A technical challenge is complete when predefined evidence supports an explicit product decision, not when a demo merely runs.
+
 ## Backlog structure
 
 A useful backlog contains user outcomes, enabling technical work, risk controls, evaluation data, operations, documentation, and retirement tasks. If security and evaluation live in a separate "later" backlog, feature delivery will outrun evidence.

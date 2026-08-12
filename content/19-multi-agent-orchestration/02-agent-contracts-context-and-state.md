@@ -6,6 +6,30 @@
 - Pass minimum sufficient context without breaking message/tool invariants.
 - Separate shared workflow state from private worker scratch space.
 
+## Applied visual
+
+```mermaid
+sequenceDiagram
+    participant C as Coordinator
+    participant V as Contract validator
+    participant W as Bounded worker
+    participant S as Shared state
+    C->>V: Validate task envelope and budget
+    V-->>C: Accepted contract
+    C->>W: Minimum context and allowed tools
+    W-->>C: Structured result and evidence
+    C->>V: Validate schema version and deadline
+    alt Valid result
+        V-->>C: Accept
+        C->>S: Append evidence with merge rules
+    else Invalid or late result
+        V-->>C: Reject with typed error
+        C->>S: Append failure event
+    end
+```
+
+The coordinator treats delegation as an untrusted API exchange and is the only component allowed to merge shared state.
+
 ## Treat delegation as an API call
 
 An agent contract should name purpose, accepted inputs, output schema, evidence requirements, tools, allowed resources, prohibited actions, timeout/call/token budgets, idempotency behavior, error types, and version. Descriptions drive model routing, so "helpful researcher" is weak. Prefer "find up to five primary public sources for the supplied question; return structured claims and URLs; never write files or contact people."

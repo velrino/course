@@ -6,6 +6,27 @@
 - Prevent duplicate side effects after retries or restarts.
 - Validate an approval against the exact action that eventually executes.
 
+## Applied visual
+
+```mermaid
+stateDiagram-v2
+    [*] --> Drafted
+    Drafted --> AwaitingReview: persist proposal
+    AwaitingReview --> Rejected: reviewer rejects
+    AwaitingReview --> Expired: deadline passes
+    AwaitingReview --> Approved: version and hash match
+    Approved --> AwaitingReview: proposal changes
+    Approved --> Executing: claim transaction
+    Executing --> Succeeded: side effect recorded
+    Executing --> Failed: attempt fails
+    Failed --> Executing: safe retry
+    Rejected --> [*]
+    Expired --> [*]
+    Succeeded --> [*]
+```
+
+Only a persisted, matching approval can reach execution, while retries remain explicit and recoverable.
+
 ## A pause is a state transition
 
 An approval workflow is a state machine, not a blocking `input()` call. Persist the proposed action before notifying a reviewer. A minimal lifecycle is:

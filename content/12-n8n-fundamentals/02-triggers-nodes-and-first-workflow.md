@@ -9,6 +9,27 @@ By the end of this lesson, you can:
 - build a deterministic intake-and-validation workflow;
 - inspect node-level inputs and outputs instead of debugging by guesswork.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A{Delivery model} -->|Development| B[Manual trigger]
+    A -->|Time based| C[Schedule trigger]
+    A -->|Periodic check| D[Polling trigger]
+    A -->|Inbound event| E[Webhook trigger]
+    B --> F[Receive or create items]
+    C --> F
+    D --> F
+    E --> F
+    F --> G[Normalize fields]
+    G --> H[Validate required fields]
+    H --> I{Valid item?}
+    I -- Yes --> J[Mark ready]
+    I -- No --> K[Route to review]
+```
+
+The trigger changes delivery assumptions, but every path should expose the same deterministic normalization, validation, and routing stages.
+
 ## Read a workflow left to right
 
 Every execution begins at a trigger. The choice encodes a delivery model:

@@ -27,6 +27,10 @@ flowchart TD
     K --> L
 ```
 
+![An AI system routes low-risk reversible actions to monitored execution, consequential actions to an informed human reviewer, prohibited actions to a blocked state, and every decision to a durable audit record.](../assets/images/human-oversight-control.png)
+
+The reviewer receives evidence and meaningful choices rather than a ceremonial confirmation. Saved state and an audit trail make approval durable, reviewable, and recoverable after interruption.
+
 ## Oversight must change the outcome
 
 Putting a person near a system is not meaningful oversight unless that person has enough information, time, authority, and a usable action. A confirmation dialog that defaults to approval after a vague summary is ceremony, not control.

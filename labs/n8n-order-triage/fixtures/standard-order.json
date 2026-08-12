@@ -1,0 +1,11 @@
+{
+  "orderId": "ord_4102",
+  "customerId": "cus_188",
+  "currency": "USD",
+  "totalCents": 4599,
+  "riskScore": 18,
+  "items": [
+    { "sku": "notebook-a5", "quantity": 2, "unitCents": 1299 },
+    { "sku": "pen-set", "quantity": 1, "unitCents": 2001 }
+  ]
+}

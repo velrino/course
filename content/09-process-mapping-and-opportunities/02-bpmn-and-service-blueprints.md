@@ -9,6 +9,31 @@ By the end of this lesson, you can:
 - avoid diagrams that look precise but omit responsibility or failure paths;
 - validate a map by replaying real cases through it.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    subgraph Requester
+        A[Submit case]
+        Z[Receive outcome]
+    end
+    subgraph Service_team[Service team]
+        B[Validate evidence]
+        C{Evidence complete?}
+        D[Process request]
+        E[Request correction]
+    end
+    subgraph Supporting_system[Supporting system]
+        F[Record status and evidence]
+    end
+    A --> B --> C
+    C -- Yes --> D --> F --> Z
+    C -- No --> E --> A
+    F -. supports .-> B
+```
+
+Lanes expose responsibility, the gateway makes the business rule visible, and the correction loop prevents incomplete cases from disappearing.
+
 ## Two views of the same service
 
 **BPMN** describes control flow. Its small core vocabulary is enough for most discovery work:

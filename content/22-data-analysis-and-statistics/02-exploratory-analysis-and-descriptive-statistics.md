@@ -6,6 +6,28 @@
 - Explore relationships while checking data-generating assumptions.
 - Separate exploratory findings from confirmatory claims.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Profile types missingness and ranges] --> B[Inspect distributions and raw scale]
+    B --> C{Extreme observation?}
+    C -- Yes --> D[Check provenance and sensitivity]
+    C -- No --> E[Compare groups and time]
+    D --> E
+    E --> F[Calculate overall relationship]
+    E --> G[Calculate stratified relationships]
+    F --> H{Patterns agree?}
+    G --> H
+    H -- No --> I[Investigate confounding and aggregation]
+    H -- Yes --> J[Record descriptive finding]
+    I --> K[Form a new hypothesis]
+    J --> K
+    K --> L[Validate with new or held-out data]
+```
+
+Exploration moves from data quality to competing views of a pattern before any confirmatory claim is made.
+
 ## Describe shape, spread, and structure
 
 Begin with row/column counts, types, unique values, missingness, ranges, and time coverage. For numeric variables, inspect median, quantiles, interquartile range, minimum/maximum, and mean/standard deviation. A mean is sensitive to skew and outliers; a median can hide bimodality. Always look at the distribution and the raw scale.

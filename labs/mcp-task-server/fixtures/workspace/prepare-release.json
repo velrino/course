@@ -1,0 +1,9 @@
+{
+  "id": "prepare-release",
+  "title": "Prepare the August release",
+  "details": "Verify the changelog, run the regression suite, and publish the signed artifact.",
+  "status": "open",
+  "createdAt": "2026-08-10T14:30:00.000Z",
+  "completedAt": null,
+  "completionNote": null
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Order Triage - Starter",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "TODO: validate the contract, classify routes, return explicit 400 and 202 responses, and attach an error workflow.",
+        "height": 180,
+        "width": 360
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-660, -260],
+      "id": "1d910669-1ab1-4f26-b12a-e35c645fb001",
+      "name": "Lab Tasks"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "course-order-triage",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-520, 0],
+      "id": "1d910669-1ab1-4f26-b12a-e35c645fb002",
+      "name": "Receive Order",
+      "webhookId": "069216cf-66f8-4bc5-ac93-7b673f497402"
+    },
+    {
+      "parameters": {
+        "jsCode": "// TODO: validate and classify the input.\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-260, 0],
+      "id": "1d910669-1ab1-4f26-b12a-e35c645fb003",
+      "name": "Validate and Classify"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Receive Order": {
+      "main": [[{ "node": "Validate and Classify", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "fb7aa6a3-e384-488a-a661-98723eec1001",
+  "meta": { "templateCredsSetupCompleted": true },
+  "tags": []
+}

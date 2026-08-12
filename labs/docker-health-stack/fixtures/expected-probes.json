@@ -1,0 +1,12 @@
+{
+  "healthy": {
+    "liveStatus": 200,
+    "readyStatus": 200,
+    "readyBodyStatus": "ready"
+  },
+  "failureInjected": {
+    "liveStatus": 200,
+    "readyStatus": 503,
+    "readyBodyStatus": "not_ready"
+  }
+}

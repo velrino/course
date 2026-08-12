@@ -9,6 +9,27 @@ By the end of this lesson, you will be able to:
 - make uncertainty visible with a question backlog; and
 - select the next smallest useful learning task.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Desired outcome] --> B{What must already be true?}
+    B --> C[Concepts]
+    B --> D[Procedures]
+    B --> E[Decisions]
+    B --> F[Evidence]
+    C --> G[Dependency map]
+    D --> G
+    E --> G
+    F --> G
+    G --> H{Smallest blocking leaf?}
+    H --> I[Next learning task]
+    I --> J[Observable completion evidence]
+    J --> G
+```
+
+The loop turns a broad outcome into one testable task, then uses evidence to update the dependency map.
+
 ## A list is not a map
 
 A syllabus lists destinations. A knowledge map shows how the destinations depend on one another. "Docker," "webhooks," and "MCP" are labels; they do not tell you which ideas must be available in memory when you perform a task.

@@ -27,6 +27,10 @@ flowchart TD
     B --> J[State and audit trail]
 ```
 
+![A layered AI automation system combines governed inputs, retrieval, a model, narrow tools, workflow control, human approval, business systems, tests, and operational monitoring.](../assets/images/ai-automation-course-system.png)
+
+The illustration makes the system boundary concrete: the model is only one component. Data controls, deterministic adapters, approval, downstream authority, tests, and telemetry determine whether the complete agent is dependable.
+
 ## Workflow or agent?
 
 A **workflow** follows paths defined in code or configuration. A **model-assisted workflow** uses a model for a narrow transformation inside deterministic routing. An **agent** lets a model choose the next action or tool repeatedly based on observations.

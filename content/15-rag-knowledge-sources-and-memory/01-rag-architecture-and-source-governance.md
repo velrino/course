@@ -24,6 +24,10 @@ flowchart TD
     J --> F
 ```
 
+![A governed RAG pipeline turns access-controlled documents into metadata-rich chunks, combines lexical and vector retrieval, filters evidence before generation, links supported answers to source passages, and abstains when evidence is insufficient.](../assets/images/rag-grounded-retrieval.png)
+
+This conceptual view highlights two boundaries that are easy to miss in code: authorization filters evidence before it reaches generation, and the unsupported path ends in abstention instead of a plausible answer.
+
 ## The retrieval contract
 
 A language model generates text from parameters learned during training. RAG adds a second, non-parametric memory: at request time, a retriever selects evidence from an external corpus and the generator receives that evidence in its context. This makes current, private, or domain-specific knowledge available without retraining. It does **not** make an answer true automatically. A bad source, missing passage, incorrect access filter, or unsupported synthesis can still produce a confident error.

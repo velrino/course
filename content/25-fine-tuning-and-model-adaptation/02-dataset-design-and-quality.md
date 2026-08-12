@@ -4,6 +4,28 @@
 
 Build a documented training dataset, prevent evaluation leakage, and identify consent, privacy, ownership, and representation risks.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Candidate examples] --> B[Verify provenance rights and consent]
+    B --> C[Validate schema labels and safety coverage]
+    C --> D[Deduplicate by scenario family]
+    D --> E[Group-aware split]
+    E --> F[Training set]
+    E --> G[Validation set]
+    E --> H[Held-out test set]
+    F --> I[Training iteration]
+    G --> I
+    I --> J[Freeze candidate]
+    J --> H
+    H --> K[Final evaluation]
+    C --> L[Versioned dataset card]
+    E --> L
+```
+
+Rights and quality checks precede a group-aware split, keeping the held-out test set outside training iteration.
+
 ## Define the data contract
 
 Specify the unit of one example, required fields, allowed sources, label instructions, exclusions, and quality checks. For instruction tuning, an example may contain system constraints, user input, optional context, and an expected response. Keep metadata such as source, creation method, reviewer, language, domain, and rights separate from the training text when possible.

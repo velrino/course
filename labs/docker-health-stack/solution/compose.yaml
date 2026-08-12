@@ -1,0 +1,44 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATA_DIR: /data
+      FAILURE_TOKEN: ${FAILURE_TOKEN:-lab-only}
+      PORT: "8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - state-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    init: true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/health/ready').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+      start_period: 3s
+
+  readiness-probe:
+    image: curlimages/curl:8.12.1
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ["-fsS", "http://app:8080/health/ready"]
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: "no"
+
+volumes:
+  state-data:

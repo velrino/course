@@ -6,6 +6,28 @@
 - Process CSV/JSON/files with explicit encoding, validation, and atomic output.
 - Add dry-run, idempotency, and path-safety controls.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Parse CLI arguments] --> B[Resolve paths inside allowed root]
+    B --> C[Validate encoding and schema]
+    C --> D[Hash input and configuration]
+    D --> E{Completed identical run?}
+    E -- Yes --> F[Exit without duplicate work]
+    E -- No --> G{Dry run?}
+    G -- Yes --> H[Report planned changes]
+    G -- No --> I[Stream rows to temporary output]
+    I --> J{Invalid row?}
+    J -- Yes --> K[Fail or quarantine by policy]
+    J -- No --> L[Continue batch]
+    K --> L
+    L --> M[Atomically replace destination]
+    M --> N[Write manifest]
+```
+
+Discovery and validation are shared by dry and live runs, while only the live path publishes atomic output.
+
 ## File automation is state management
 
 Use `pathlib.Path` instead of assembling paths with string concatenation. Resolve an allowed root and reject inputs/outputs that escape it. Do not trust file extensions alone when security matters. Set text encoding explicitly, usually UTF-8, and use `newline=""` with the CSV module.

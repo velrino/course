@@ -4,6 +4,19 @@
 
 Use this map to understand dependencies, choose an entry point, and identify the evidence expected at each stage.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Modules 01 to 08: foundations] --> B[Modules 09 to 14: automation design]
+    B --> C[Modules 15 to 19: reliable agent systems]
+    C --> D[Modules 20 to 25 and 29: code and data]
+    D --> E[Modules 26 to 28: responsible delivery]
+    C --> E
+```
+
+The main path builds technical capability in sequence, while reliable-agent skills also feed directly into responsible delivery.
+
 ## Five stages
 
 ### Stage 1: Foundations

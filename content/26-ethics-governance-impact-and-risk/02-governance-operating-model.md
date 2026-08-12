@@ -4,6 +4,24 @@
 
 Turn high-level principles into ownership, lifecycle gates, inventories, policies, and evidence using the NIST AI RMF structure.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    G[Govern: roles policy and inventory] --> M[Map: context people and impacts]
+    M --> E[Measure: tests uncertainty and risk]
+    E --> A[Manage: respond monitor and improve]
+    A --> M
+    G --> E
+    G --> A
+    A --> C{Major change or incident?}
+    C -- Yes --> M
+    C -- No --> D[Continue monitored operation]
+    D --> A
+```
+
+Govern sets the operating constraints across the cycle, while changes and incidents return the system to contextual mapping and reassessment.
+
 ## Governance as an operating system
 
 Governance defines who may make which decisions, with what evidence, at what point, and with what accountability. A useful operating model includes:

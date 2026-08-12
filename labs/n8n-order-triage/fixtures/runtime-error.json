@@ -1,0 +1,15 @@
+{
+  "execution": {
+    "id": "8127",
+    "url": "http://localhost:5678/execution/8127",
+    "error": {
+      "message": "Connection reset by downstream inventory service"
+    },
+    "lastNodeExecuted": "Reserve Inventory",
+    "mode": "webhook"
+  },
+  "workflow": {
+    "id": "order-triage",
+    "name": "Order Triage - Solution"
+  }
+}

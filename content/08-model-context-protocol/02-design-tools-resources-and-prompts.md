@@ -9,6 +9,24 @@ By the end of this lesson, you will be able to:
 - separate discovery metadata from execution authorization; and
 - design errors, caching, and side effects deliberately.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Capability] --> B{Typical controller?}
+    B -->|Model under host policy| T[Tool]
+    B -->|Application reads a URI| R[Resource]
+    B -->|User selects a template| P[Prompt]
+    T --> T1[Validate arguments and authorize action]
+    R --> R1[Check access, provenance, and freshness]
+    P --> P1[Present and constrain generated messages]
+    T1 --> H[Host policy boundary]
+    R1 --> H
+    P1 --> H
+```
+
+Primitive selection expresses interaction intent, but the host remains responsible for access, validation, and consequential actions.
+
 ## Three server primitives express different intent
 
 | Primitive | Typical controller | Purpose | Example |

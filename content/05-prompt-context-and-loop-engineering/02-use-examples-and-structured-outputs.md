@@ -9,6 +9,24 @@ By the end of this lesson, you will be able to:
 - define and validate structured output; and
 - test boundary, adversarial, and malformed cases.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Instructions and representative examples] --> B[Model output]
+    B --> C[JSON parser]
+    C --> D{Valid JSON?}
+    D -- No --> R[Reject or use bounded repair]
+    D -- Yes --> E{Matches the schema?}
+    E -- No --> R
+    E -- Yes --> F{Passes domain and authorization rules?}
+    F -- No --> R
+    F -- Yes --> G[Accept typed result]
+    R --> H[Add failure to the evaluation set]
+```
+
+Structured generation narrows the output format, but deterministic parsing, schema checks, and policy checks still decide acceptance.
+
 ## Examples communicate a decision boundary
 
 Zero-shot prompting supplies instructions without demonstrations. Few-shot prompting includes example input-output pairs in context. Examples are valuable when a verbal rule leaves a decision boundary or format ambiguous.

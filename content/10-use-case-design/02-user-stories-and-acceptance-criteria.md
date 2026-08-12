@@ -9,6 +9,24 @@ By the end of this lesson, you can:
 - define nonfunctional requirements for security, accessibility, performance, and audit;
 - prevent probabilistic components from weakening deterministic business rules.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[User outcome] --> B[Outcome-oriented story]
+    B --> C[Given context]
+    C --> D[When an action occurs]
+    D --> E{Is the expected result observable?}
+    E -- No --> F[Rewrite the ambiguous criterion]
+    F --> C
+    E -- Yes --> G[Automated or manual acceptance test]
+    H[Security, privacy, performance, and audit] --> G
+    I[Probabilistic suggestion] --> J[Deterministic schema and policy checks]
+    J --> G
+```
+
+Acceptance criteria connect user value to observable tests, while deterministic checks constrain any probabilistic suggestion.
+
 ## Stories are planning units, not mini-specifications
 
 A useful story states who needs an outcome and why:

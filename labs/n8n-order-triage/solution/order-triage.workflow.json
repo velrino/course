@@ -1,0 +1,140 @@
+{
+  "name": "Order Triage - Solution",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "Policy: invalid input -> 400; total >= 100000 or risk >= 70 -> manual review; otherwise automatic acceptance.",
+        "height": 180,
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-700, -300],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2001",
+      "name": "Triage Policy"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "course-order-triage",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-700, 0],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2002",
+      "name": "Receive Order",
+      "webhookId": "0a480673-d280-4b26-b8ba-ee32414b5bc5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const envelope = $input.first().json;\nconst order = envelope.body && typeof envelope.body === 'object' ? envelope.body : envelope;\nconst validationErrors = [];\nconst totalCents = Number(order.totalCents);\nconst riskScore = order.riskScore === undefined ? 0 : Number(order.riskScore);\nif (typeof order.orderId !== 'string' || order.orderId.trim() === '') validationErrors.push('orderId must be a non-empty string');\nif (typeof order.customerId !== 'string' || order.customerId.trim() === '') validationErrors.push('customerId must be a non-empty string');\nif (typeof order.currency !== 'string' || !/^[A-Z]{3}$/.test(order.currency)) validationErrors.push('currency must be a three-letter uppercase code');\nif (!Number.isSafeInteger(totalCents) || totalCents < 0) validationErrors.push('totalCents must be a non-negative safe integer');\nif (!Number.isInteger(riskScore) || riskScore < 0 || riskScore > 100) validationErrors.push('riskScore must be an integer from 0 through 100');\nlet route = 'automatic';\nif (validationErrors.length > 0) route = 'invalid';\nelse if (totalCents >= 100000 || riskScore >= 70) route = 'manual_review';\nreturn [{ json: { ...order, totalCents, riskScore, route, validationErrors } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-460, 0],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2003",
+      "name": "Validate and Classify"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict", "version": 2 },
+          "conditions": [{ "id": "59f03a82-140f-4ac3-aea8-e1498648ba60", "leftValue": "={{ $json.route }}", "rightValue": "invalid", "operator": { "type": "string", "operation": "equals" } }],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [-220, 0],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2004",
+      "name": "Order Invalid?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict", "version": 2 },
+          "conditions": [{ "id": "a075f54c-fdc3-4de8-9ff5-1976b2f5375e", "leftValue": "={{ $json.route }}", "rightValue": "manual_review", "operator": { "type": "string", "operation": "equals" } }],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [20, 100],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2005",
+      "name": "Needs Manual Review?"
+    },
+    {
+      "parameters": {
+        "jsCode": "const order = $input.first().json;\nreturn [{ json: { status: 'rejected', orderId: order.orderId || null, route: order.route, errors: order.validationErrors } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [20, -120],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2006",
+      "name": "Prepare Invalid Response"
+    },
+    {
+      "parameters": {
+        "jsCode": "const order = $input.first().json;\nreturn [{ json: { status: 'accepted', orderId: order.orderId, route: 'manual_review', queue: 'order-review-high-priority' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 40],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2007",
+      "name": "Prepare Manual Review"
+    },
+    {
+      "parameters": {
+        "jsCode": "const order = $input.first().json;\nreturn [{ json: { status: 'accepted', orderId: order.orderId, route: 'automatic', queue: 'order-fulfillment' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 180],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2008",
+      "name": "Prepare Automatic Response"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": { "responseCode": 400 }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [260, -120],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2009",
+      "name": "Respond Invalid"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": { "responseCode": 202 }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [500, 100],
+      "id": "c6e21898-c7f9-49f4-b316-9b13692e2010",
+      "name": "Respond Accepted"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Receive Order": { "main": [[{ "node": "Validate and Classify", "type": "main", "index": 0 }]] },
+    "Validate and Classify": { "main": [[{ "node": "Order Invalid?", "type": "main", "index": 0 }]] },
+    "Order Invalid?": { "main": [[{ "node": "Prepare Invalid Response", "type": "main", "index": 0 }], [{ "node": "Needs Manual Review?", "type": "main", "index": 0 }]] },
+    "Needs Manual Review?": { "main": [[{ "node": "Prepare Manual Review", "type": "main", "index": 0 }], [{ "node": "Prepare Automatic Response", "type": "main", "index": 0 }]] },
+    "Prepare Invalid Response": { "main": [[{ "node": "Respond Invalid", "type": "main", "index": 0 }]] },
+    "Prepare Manual Review": { "main": [[{ "node": "Respond Accepted", "type": "main", "index": 0 }]] },
+    "Prepare Automatic Response": { "main": [[{ "node": "Respond Accepted", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "f93c1247-f657-401f-814c-9cabf86e2001",
+  "meta": { "templateCredsSetupCompleted": true },
+  "tags": []
+}

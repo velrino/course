@@ -9,6 +9,24 @@ By the end of this lesson, you can:
 - version inputs and outputs without silently breaking callers;
 - test a subworkflow separately and through its callers.
 
+## Applied visual
+
+```mermaid
+sequenceDiagram
+    participant C as Caller workflow
+    participant S as validate-case-v1
+    C->>S: Version, correlation ID, and typed input
+    S->>S: Validate contract version and schema
+    alt Supported and valid
+        S-->>C: Version, status, and reason codes
+    else Unsupported or invalid
+        S-->>C: Safe error with a reason code
+    end
+    Note over C,S: Test both single-item and batch behavior
+```
+
+The versioned boundary lets callers rely on a stable result while the subworkflow rejects incompatible input explicitly.
+
 ## Extract a capability, not arbitrary nodes
 
 A useful subworkflow has one coherent responsibility, such as validate-case-v1, redact-log-record-v1, or call-catalog-with-retry-v1. Do not extract three nodes merely because they appear twice; extraction adds a dependency, execution boundary, permissions decision, and failure contract.

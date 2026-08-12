@@ -4,6 +4,23 @@
 
 Configure focused agents and testable tasks, connect tasks through explicit processes, and prevent vague role descriptions from hiding missing requirements.
 
+## Applied visual
+
+```mermaid
+flowchart LR
+    A[Validated task input] --> B[Extraction agent]
+    B --> C[Structured passages and source IDs]
+    C --> D{Output contract valid?}
+    D -- No --> E[Fail with typed error]
+    D -- Yes --> F[Support-checking agent]
+    F --> G[Claim evidence verdict]
+    G --> H{Acceptance checks pass?}
+    H -- No --> I[Escalate or revise]
+    H -- Yes --> J[Publish bounded artifact]
+```
+
+Explicit contracts turn a sequential Crew into inspectable stages with validation before every handoff.
+
 ## Agent configuration
 
 An agent needs a specific goal and bounded capabilities. A useful configuration answers:

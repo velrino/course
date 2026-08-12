@@ -13,6 +13,25 @@ Prefer promise-based filesystem calls in automation that performs concurrent I/O
 - Publish a file with a same-directory temporary file and atomic rename.
 - Provide a dry-run mode that performs validation without mutation.
 
+## Applied visual
+
+```mermaid
+flowchart TD
+    A[Parse strict CLI options] --> B[Canonicalize allowed root]
+    B --> C[Resolve input and output paths]
+    C --> D{Both paths remain inside root?}
+    D -- No --> E[Reject without mutation]
+    D -- Yes --> F[Check size and decode UTF-8]
+    F --> G[Parse JSON and validate records]
+    G --> H{Dry run?}
+    H -- Yes --> I[Report validated plan]
+    H -- No --> J[Write unique same-directory temp file]
+    J --> K[Flush and close]
+    K --> L[Atomically rename to destination]
+```
+
+Path, resource, and schema checks finish before either the dry-run report or the atomic publication path begins.
+
 ## Reliable file boundaries
 
 Never concatenate an untrusted filename onto a directory string. Resolve it, compare it to a canonical allowed root, and reject traversal. Canonicalizing the existing input and output parent with `realpath` also exposes many symbolic-link escapes. This is still not a complete defense against a hostile user changing links between checks and use; high-risk multi-user systems should isolate the process and use platform-specific secure file-opening controls.

@@ -1,0 +1,116 @@
+:root {
+  --course-border: #c5d1d8;
+  --course-surface: #f4f8f8;
+  --course-accent: #006b5f;
+  --course-complete: #137333;
+}
+
+[data-md-color-scheme="slate"] {
+  --course-border: #53636d;
+  --course-surface: #202b31;
+  --course-accent: #62d6c6;
+  --course-complete: #7bd88f;
+}
+
+.md-main__inner {
+  padding-bottom: 3rem;
+}
+
+.md-content,
+.md-content__inner,
+.md-typeset {
+  min-width: 0;
+}
+
+.md-typeset {
+  overflow-wrap: anywhere;
+}
+
+.md-typeset img {
+  border: 1px solid var(--course-border);
+  box-sizing: border-box;
+  height: auto;
+  max-width: 100%;
+}
+
+.course-progress {
+  background: var(--course-surface);
+  border: 1px solid var(--course-border);
+  border-left: 0.25rem solid var(--course-accent);
+  display: grid;
+  gap: 0.65rem;
+  margin: 0 0 1.5rem;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+}
+
+.course-progress__header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.course-progress__header > * {
+  min-width: 0;
+}
+
+.course-progress__label {
+  font-weight: 700;
+}
+
+.course-progress progress {
+  accent-color: var(--course-accent);
+  height: 0.7rem;
+  width: 100%;
+}
+
+.course-progress__button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--course-accent);
+  color: var(--course-accent);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.75rem;
+  width: fit-content;
+}
+
+.course-progress__button[aria-pressed="true"] {
+  border-color: var(--course-complete);
+  color: var(--course-complete);
+}
+
+.course-progress__button:focus-visible,
+.md-typeset a:focus-visible {
+  outline: 0.18rem solid var(--course-accent);
+  outline-offset: 0.18rem;
+}
+
+@media (max-width: 44.984375em) {
+  .course-progress__header {
+    align-items: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .course-progress__button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
